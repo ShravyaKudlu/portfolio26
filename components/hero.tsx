@@ -653,7 +653,7 @@ const moduleData = {
     name: "caffeine",
     content: [
       { label: "Level", value: "CRITICAL", color: "terminal-red" },
-      { label: "Cups Today", value: "∞", color: "terminal-orange" },
+      { label: "Cups Today", value: "[▓▓▓▓▓▓▓▓▓▓░░░░]", color: "terminal-orange" },
       { label: "Heart Rate", value: "Probably fine", color: "terminal-yellow" },
       { label: "Sleep", value: "What's that?", color: "terminal-green" },
       { label: "Mood", value: "JITTERY", color: "terminal-cyan" },
@@ -860,10 +860,10 @@ export function Hero() {
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: idx * 0.05 }}
-                        className="flex items-baseline gap-3 mb-2"
+                        className="grid grid-cols-[120px_auto_1fr] gap-3 mb-2 items-baseline"
                       >
                         <span
-                          className={`font-bold min-w-[100px] ${item.color}`}
+                          className={`font-bold ${item.color}`}
                         >
                           {item.label}
                         </span>
@@ -889,16 +889,6 @@ export function Hero() {
                       <pre className="font-mono text-[7px] md:text-[9px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none">
                         {currentAscii}
                       </pre>
-                      <div className="mt-6 flex flex-wrap gap-1">
-                        <div className="w-6 h-4 rounded bg-[#c53b53] dark:bg-[#f7768e]" />
-                        <div className="w-6 h-4 rounded bg-[#d06d47] dark:bg-[#ff9e64]" />
-                        <div className="w-6 h-4 rounded bg-[#b3873e] dark:bg-[#e0af68]" />
-                        <div className="w-6 h-4 rounded bg-[#587936] dark:bg-[#9ece6a]" />
-                        <div className="w-6 h-4 rounded bg-[#2a7a6f] dark:bg-[#73daca]" />
-                        <div className="w-6 h-4 rounded bg-[#3d59a1] dark:bg-[#7aa2f7]" />
-                        <div className="w-6 h-4 rounded bg-[#7e6bab] dark:bg-[#bb9af7]" />
-                        <div className="w-6 h-4 rounded bg-[#9d6080] dark:bg-[#f7768e]" />
-                      </div>
                     </motion.div>
 
                     {/* System Info */}
@@ -1021,6 +1011,23 @@ export function Hero() {
                         <span className="text-muted-foreground">
                           {currentProfile.data.coffee}
                         </span>
+                      </motion.div>
+
+                      {/* Color Palette - Under Coffee */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                        className="flex flex-wrap gap-1 mt-12"
+                      >
+                        <div className="w-6 h-4 rounded bg-[#c53b53] dark:bg-[#f7768e]" />
+                        <div className="w-6 h-4 rounded bg-[#d06d47] dark:bg-[#ff9e64]" />
+                        <div className="w-6 h-4 rounded bg-[#b3873e] dark:bg-[#e0af68]" />
+                        <div className="w-6 h-4 rounded bg-[#587936] dark:bg-[#9ece6a]" />
+                        <div className="w-6 h-4 rounded bg-[#2a7a6f] dark:bg-[#73daca]" />
+                        <div className="w-6 h-4 rounded bg-[#3d59a1] dark:bg-[#7aa2f7]" />
+                        <div className="w-6 h-4 rounded bg-[#7e6bab] dark:bg-[#bb9af7]" />
+                        <div className="w-6 h-4 rounded bg-[#9d6080] dark:bg-[#f7768e]" />
                       </motion.div>
                     </div>
                   </div>
