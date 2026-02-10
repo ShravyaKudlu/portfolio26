@@ -167,7 +167,7 @@ export function Contact() {
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-violet-500/50 focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all"
+                  className="w-full px-4 py-3 rounded-xl input-border focus:outline-none transition-all"
                   placeholder="Your name"
                 />
               </div>
@@ -182,7 +182,7 @@ export function Contact() {
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-violet-500/50 focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all"
+                  className="w-full px-4 py-3 rounded-xl input-border focus:outline-none transition-all"
                   placeholder="your@email.com"
                 />
               </div>
@@ -197,7 +197,7 @@ export function Contact() {
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-violet-500/50 focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl input-border focus:outline-none transition-all resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>

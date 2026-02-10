@@ -16,6 +16,11 @@ const skillCategories = [
     color: "from-purple-500 to-fuchsia-500",
   },
   {
+    title: "Java",
+    skills: ["Java", "Spring Boot", "Hibernate", "Maven", "JUnit"],
+    color: "from-orange-500 to-red-500",
+  },
+  {
     title: "DevOps",
     skills: ["Docker", "AWS", "Vercel", "GitHub Actions", "Linux"],
     color: "from-fuchsia-500 to-pink-500",
@@ -78,7 +83,7 @@ export function Skills() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="grid md:grid-cols-2 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {skillCategories.map((category) => (
             <motion.div
@@ -111,7 +116,7 @@ export function Skills() {
                 </div>
               </div>
 
-              <div className="relative flex flex-wrap gap-3">
+                <div className="relative flex flex-wrap gap-3">
                 {category.skills.map((skill) => (
                   <motion.span
                     key={skill}
@@ -119,7 +124,7 @@ export function Skills() {
                       scale: 1.1,
                       y: -3,
                     }}
-                    className="px-4 py-2 rounded-xl text-sm font-medium bg-white/5 hover:bg-gradient-to-r hover:from-violet-500/20 hover:to-fuchsia-500/20 border border-white/10 hover:border-violet-500/30 transition-all cursor-default"
+                    className="px-4 py-2 rounded-xl text-sm font-medium tag-border hover:bg-gradient-to-r hover:from-violet-500/20 hover:to-fuchsia-500/20 hover:border-violet-500/40 transition-all cursor-default"
                   >
                     {skill}
                   </motion.span>

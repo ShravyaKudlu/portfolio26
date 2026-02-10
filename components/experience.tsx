@@ -120,7 +120,7 @@ export function Experience() {
                         <span>{exp.location}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground bg-white/5 px-3 py-1 rounded-full w-fit">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground tag-border px-3 py-1 rounded-full w-fit">
                       <Calendar className="w-4 h-4" />
                       <span>{exp.period}</span>
                     </div>
@@ -134,7 +134,7 @@ export function Experience() {
                     {exp.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20"
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/30"
                       >
                         {skill}
                       </span>

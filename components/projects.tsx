@@ -180,7 +180,7 @@ export function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 hover:border-violet-500/30 transition-colors"
+                      className="px-3 py-1 text-xs font-medium rounded-full tag-border hover:border-violet-500/40 transition-colors"
                     >
                       {tag}
                     </span>

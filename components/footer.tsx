@@ -22,7 +22,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative py-12 border-t border-white/10">
+    <footer className="relative py-12 footer-glass">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left side */}
@@ -89,7 +89,7 @@ export function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="mt-8 pt-8 border-t border-white/5 text-center text-sm text-muted-foreground"
+          className="mt-8 pt-8 border-t border-violet-500/20 dark:border-white/10 text-center text-sm text-muted-foreground"
         >
           © {new Date().getFullYear()} Shravya. All rights reserved.
         </motion.div>

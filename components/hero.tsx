@@ -2,11 +2,18 @@
 
 import { motion, Variants } from "motion/react";
 import { useState, useEffect } from "react";
-import { Sparkles, ChevronRight, Activity, Coffee, Bug, Palette } from "lucide-react";
+import {
+  Sparkles,
+  ChevronRight,
+  Activity,
+  Coffee,
+  Bug,
+  Palette,
+} from "lucide-react";
 
 const slideUpVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 10,
   },
   visible: {
@@ -24,12 +31,20 @@ const profiles = {
   "1": {
     name: "fullstack",
     ascii: `
-    ███████╗██╗   ██╗██╗     ██╗     ███████╗████████╗ █████╗  ██████╗██╗  ██╗
-    ██╔════╝██║   ██║██║     ██║     ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝
-    █████╗  ██║   ██║██║     ██║     ███████╗   ██║   ███████║██║     █████╔╝ 
-    ██╔══╝  ██║   ██║██║     ██║     ╚════██║   ██║   ██╔══██║██║     ██╔═██╗ 
-    ██║     ╚██████╔╝███████╗███████╗███████║   ██║   ██║  ██║╚██████╗██║  ██╗
-    ╚═╝      ╚═════╝ ╚══════╝╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
+███████╗██╗   ██╗██╗     ██╗     ███████╗████████╗ █████╗  ██████╗██╗  ██╗    
+██╔════╝██║   ██║██║     ██║     ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝    
+█████╗  ██║   ██║██║     ██║     ███████╗   ██║   ███████║██║     █████╔╝     
+██╔══╝  ██║   ██║██║     ██║     ╚════██║   ██║   ██╔══██║██║     ██╔═██╗     
+██║     ╚██████╔╝███████╗███████╗███████║   ██║   ██║  ██║╚██████╗██║  ██╗    
+╚═╝      ╚═════╝ ╚══════╝╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝    
+                                                                              
+██████╗ ███████╗██╗   ██╗                                                     
+██╔══██╗██╔════╝██║   ██║                                                     
+██║  ██║█████╗  ██║   ██║                                                     
+██║  ██║██╔══╝  ╚██╗ ██╔╝                                                     
+██████╔╝███████╗ ╚████╔╝                                                      
+╚═════╝ ╚══════╝  ╚═══╝                                                       
+                                                                              
     `,
     data: {
       name: "Shravya",
@@ -55,12 +70,27 @@ const profiles = {
   "2": {
     name: "linux",
     ascii: `
-    ██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗███████╗██████╗ ███████╗
-    ██║     ██║████╗  ██║██║   ██║██║ ██╔╝██╔════╝██╔══██╗██╔════╝
-    ██║     ██║██╔██╗ ██║██║   ██║█████╔╝ █████╗  ██████╔╝███████╗
-    ██║     ██║██║╚██╗██║██║   ██║██╔═██╗ ██╔══╝  ██╔══██╗╚════██║
-    ███████╗██║██║ ╚████║╚██████╔╝██║  ██╗███████╗██║  ██║███████║
-    ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝
+██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗               
+██║     ██║████╗  ██║██║   ██║╚██╗██╔╝               
+██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝                
+██║     ██║██║╚██╗██║██║   ██║ ██╔██╗                
+███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗               
+╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝               
+                                                     
+███████╗██╗   ██╗███████╗████████╗███████╗███╗   ███╗
+██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║
+███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║
+╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║
+███████║   ██║   ███████║   ██║   ███████╗██║ ╚═╝ ██║
+╚══════╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝╚═╝     ╚═╝
+                                                     
+██████╗ ███████╗██╗   ██╗                            
+██╔══██╗██╔════╝██║   ██║                            
+██║  ██║█████╗  ██║   ██║                            
+██║  ██║██╔══╝  ╚██╗ ██╔╝                            
+██████╔╝███████╗ ╚████╔╝                             
+╚═════╝ ╚══════╝  ╚═══╝                              
+                                                     
     `,
     data: {
       name: "Shravya",
@@ -84,76 +114,29 @@ const profiles = {
     ],
   },
   "3": {
-    name: "ai",
-    ascii: `
-     █████╗ ██╗    ████████╗██╗  ██╗███████╗██████╗ ██╗███╗   ██╗ ██████╗ 
-    ██╔══██╗██║    ╚══██╔══╝██║  ██║██╔════╝██╔══██╗██║████╗  ██║██╔════╝ 
-    ███████║██║       ██║   ███████║█████╗  ██████╔╝██║██╔██╗ ██║██║  ███╗
-    ██╔══██║██║       ██║   ██╔══██║██╔══╝  ██╔══██╗██║██║╚██╗██║██║   ██║
-    ██║  ██║██║       ██║   ██║  ██║███████╗██║  ██║██║██║ ╚████║╚██████╔╝
-    ╚═╝  ╚═╝╚═╝       ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ 
-    `,
-    data: {
-      name: "Shravya",
-      role: "AI/ML Engineer",
-      focus: "Teaching LLMs to behave",
-      stack: "Python, LangChain, PyTorch, OpenAI",
-      editor: "Neovim + Jupyter",
-      shell: "zsh + custom AI prompts",
-      wm: "Hyprland + AI widgets",
-      uptime: "Training models 24/7",
-      status: "Hallucinating slightly",
-      bugs: "AI said it was fine",
-      coffee: "Dark roast, intravenous",
-    },
-    personality: [
-      "🤖 I build AI agents. Sometimes they answer back. It's concerning.",
-      "🧠 My models hallucinate less than I do after 3 AM.",
-      "⚡ Prompt engineering: politely asking AI to not make things up.",
-      "📊 Vector databases hold my hopes, dreams, and embeddings.",
-      "🔄 Spent 6 months training. Model learned to output '42'.",
-    ],
-  },
-  "4": {
-    name: "vibe",
-    ascii: `
-    ██╗   ██╗██╗██████╗ ███████╗     ██████╗ ██████╗ ██████╗ ███████╗██████╗ 
-    ██║   ██║██║██╔══██╗██╔════╝    ██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔══██╗
-    ██║   ██║██║██████╔╝█████╗      ██║     ██║   ██║██║  ██║█████╗  ██████╔╝
-    ╚██╗ ██╔╝██║██╔══██╗██╔══╝      ██║     ██║   ██║██║  ██║██╔══╝  ██╔══██╗
-     ╚████╔╝ ██║██║  ██║███████╗    ╚██████╗╚██████╔╝██████╔╝███████╗██║  ██║
-      ╚═══╝  ╚═╝╚═╝  ╚═╝╚══════╝     ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝
-    `,
-    data: {
-      name: "Shravya",
-      role: "Vibe Coder",
-      focus: "Ship first, fix never",
-      stack: "ChatGPT, Copilot, vibes, prayers",
-      editor: "Whatever opens fastest",
-      shell: "ctrl+c, ctrl+v",
-      wm: "Floating windows (chaos)",
-      uptime: "Last commit 5 mins ago",
-      status: "90% done (last 10% is 90%)",
-      bugs: "Will fix in next sprint",
-      coffee: "Energy drink + optimism",
-    },
-    personality: [
-      "✨ Vibe coding: code so fast you forget what the function does.",
-      "🎯 Ship now, fix later (never). That's the vibe.",
-      "🎵 Coding to lo-fi beats at 3x speed.",
-      "🎨 Code style is 'whatever works'. Clean code is for people with time.",
-      "🚀 Production is just beta testing with real users.",
-    ],
-  },
-  "5": {
     name: "java",
     ascii: `
-     ██╗ █████╗ ██╗   ██╗ █████╗ 
-     ██║██╔══██╗██║   ██║██╔══██╗
-     ██║███████║██║   ██║███████║
-     ██║██╔══██║╚██╗ ██╔╝██╔══██║
-     ██║██║  ██║ ╚████╔╝ ██║  ██║
-     ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝
+     ██╗ █████╗ ██╗   ██╗ █████╗                                    
+     ██║██╔══██╗██║   ██║██╔══██╗                                   
+     ██║███████║██║   ██║███████║                                   
+██   ██║██╔══██║╚██╗ ██╔╝██╔══██║                                   
+╚█████╔╝██║  ██║ ╚████╔╝ ██║  ██║                                   
+ ╚════╝ ╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝                                   
+                                                                    
+███████╗ ██████╗ ███████╗████████╗██╗    ██╗ █████╗ ██████╗ ███████╗
+██╔════╝██╔═══██╗██╔════╝╚══██╔══╝██║    ██║██╔══██╗██╔══██╗██╔════╝
+███████╗██║   ██║█████╗     ██║   ██║ █╗ ██║███████║██████╔╝█████╗  
+╚════██║██║   ██║██╔══╝     ██║   ██║███╗██║██╔══██║██╔══██╗██╔══╝  
+███████║╚██████╔╝██║        ██║   ╚███╔███╔╝██║  ██║██║  ██║███████╗
+╚══════╝ ╚═════╝ ╚═╝        ╚═╝    ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+                                                                    
+███████╗███╗   ██╗ ██████╗                                          
+██╔════╝████╗  ██║██╔════╝                                          
+█████╗  ██╔██╗ ██║██║  ███╗                                         
+██╔══╝  ██║╚██╗██║██║   ██║                                         
+███████╗██║ ╚████║╚██████╔╝                                         
+╚══════╝╚═╝  ╚═══╝ ╚═════╝                                          
+                                                                    
     `,
     data: {
       name: "Shravya",
@@ -176,47 +159,156 @@ const profiles = {
       "🔧 Maven downloads the internet. Every. Single. Time.",
     ],
   },
+  "4": {
+    name: "ai",
+    ascii: `
+ █████╗ ██████╗ ██████╗ ██╗     ██╗███████╗██████╗     
+██╔══██╗██╔══██╗██╔══██╗██║     ██║██╔════╝██╔══██╗    
+███████║██████╔╝██████╔╝██║     ██║█████╗  ██║  ██║    
+██╔══██║██╔═══╝ ██╔═══╝ ██║     ██║██╔══╝  ██║  ██║    
+██║  ██║██║     ██║     ███████╗██║███████╗██████╔╝    
+╚═╝  ╚═╝╚═╝     ╚═╝     ╚══════╝╚═╝╚══════╝╚═════╝     
+                                                       
+ █████╗ ██╗                                            
+██╔══██╗██║                                            
+███████║██║                                            
+██╔══██║██║                                            
+██║  ██║██║                                            
+╚═╝  ╚═╝╚═╝                                            
+                                                       
+███████╗███╗   ██╗ ██████╗                             
+██╔════╝████╗  ██║██╔════╝                             
+█████╗  ██╔██╗ ██║██║  ███╗                            
+██╔══╝  ██║╚██╗██║██║   ██║                            
+███████╗██║ ╚████║╚██████╔╝                            
+╚══════╝╚═╝  ╚═══╝ ╚═════╝                             
+                                                       
+    `,
+    data: {
+      name: "Shravya",
+      role: "AI/ML Engineer",
+      focus: "Teaching LLMs to behave",
+      stack: "Python, LangChain, PyTorch, OpenAI",
+      editor: "Neovim + Jupyter",
+      shell: "zsh + custom AI prompts",
+      wm: "Hyprland + AI widgets",
+      uptime: "Training models 24/7",
+      status: "Hallucinating slightly",
+      bugs: "AI said it was fine",
+      coffee: "Dark roast, intravenous",
+    },
+    personality: [
+      "🤖 I build AI agents. Sometimes they answer back. It's concerning.",
+      "🧠 My models hallucinate less than I do after 3 AM.",
+      "⚡ Prompt engineering: politely asking AI to not make things up.",
+      "📊 Vector databases hold my hopes, dreams, and embeddings.",
+      "🔄 Spent 6 months training. Model learned to output '42'.",
+    ],
+  },
+  "5": {
+    name: "vibe",
+    ascii: `
+██╗   ██╗██╗██████╗ ███████╗             
+██║   ██║██║██╔══██╗██╔════╝             
+██║   ██║██║██████╔╝█████╗               
+╚██╗ ██╔╝██║██╔══██╗██╔══╝               
+ ╚████╔╝ ██║██████╔╝███████╗             
+  ╚═══╝  ╚═╝╚═════╝ ╚══════╝             
+                                         
+ ██████╗ ██████╗ ██████╗ ███████╗██████╗ 
+██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔══██╗
+██║     ██║   ██║██║  ██║█████╗  ██████╔╝
+██║     ██║   ██║██║  ██║██╔══╝  ██╔══██╗
+╚██████╗╚██████╔╝██████╔╝███████╗██║  ██║
+ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝
+                                         
+    `,
+    data: {
+      name: "Shravya",
+      role: "Vibe Coder",
+      focus: "Ship first, fix never",
+      stack: "ChatGPT, Copilot, vibes, prayers",
+      editor: "Whatever opens fastest",
+      shell: "ctrl+c, ctrl+v",
+      wm: "Floating windows (chaos)",
+      uptime: "Last commit 5 mins ago",
+      status: "90% done (last 10% is 90%)",
+      bugs: "Will fix in next sprint",
+      coffee: "Energy drink + optimism",
+    },
+    personality: [
+      "✨ Vibe coding: code so fast you forget what the function does.",
+      "🎯 Ship now, fix later (never). That's the vibe.",
+      "🎵 Coding to lo-fi beats at 3x speed.",
+      "🎨 Code style is 'whatever works'. Clean code is for people with time.",
+      "🚀 Production is just beta testing with real users.",
+    ],
+  },
 };
 
 const moduleData = {
   stats: {
     name: "sysinfo",
     content: [
-      { label: "CPU", value: "Overclocked anxiety", color: "text-violet-400" },
-      { label: "RAM", value: "Full of browser tabs", color: "text-fuchsia-400" },
-      { label: "GPU", value: "Rendering tears", color: "text-blue-400" },
-      { label: "Disk", value: "99% node_modules", color: "text-cyan-400" },
-      { label: "Temp", value: "Running hot (like me)", color: "text-red-400" },
+      { label: "CPU", value: "Overclocked anxiety", color: "terminal-red" },
+      { label: "RAM", value: "Full of browser tabs", color: "terminal-orange" },
+      { label: "GPU", value: "Rendering tears", color: "terminal-yellow" },
+      { label: "Disk", value: "99% node_modules", color: "terminal-green" },
+      { label: "Temp", value: "Running hot (like me)", color: "terminal-cyan" },
     ],
   },
   coffee: {
     name: "caffeine",
     content: [
-      { label: "Level", value: "CRITICAL", color: "text-red-400" },
-      { label: "Cups Today", value: "∞", color: "text-orange-400" },
-      { label: "Heart Rate", value: "Probably fine", color: "text-yellow-400" },
-      { label: "Sleep", value: "What's that?", color: "text-purple-400" },
-      { label: "Mood", value: "JITTERY", color: "text-pink-400" },
+      { label: "Level", value: "CRITICAL", color: "terminal-red" },
+      { label: "Cups Today", value: "∞", color: "terminal-orange" },
+      { label: "Heart Rate", value: "Probably fine", color: "terminal-yellow" },
+      { label: "Sleep", value: "What's that?", color: "terminal-green" },
+      { label: "Mood", value: "JITTERY", color: "terminal-cyan" },
     ],
   },
   bugs: {
     name: "issues",
     content: [
-      { label: "Production", value: "0 (shipped yesterday)", color: "text-green-400" },
-      { label: "Local", value: "Works perfectly", color: "text-blue-400" },
-      { label: "Features", value: "All bugs", color: "text-yellow-400" },
-      { label: "Fixed", value: "Created 5 new ones", color: "text-red-400" },
-      { label: "Status", value: "It's not a bug, it's a feature", color: "text-violet-400" },
+      {
+        label: "Production",
+        value: "0 (shipped yesterday)",
+        color: "terminal-green",
+      },
+      { label: "Local", value: "Works perfectly", color: "terminal-blue" },
+      { label: "Features", value: "All bugs", color: "terminal-purple" },
+      { label: "Fixed", value: "Created 5 new ones", color: "terminal-red" },
+      {
+        label: "Status",
+        value: "It's not a bug, it's a feature",
+        color: "terminal-orange",
+      },
     ],
   },
   rice: {
     name: "hypr",
     content: [
-      { label: "Theme", value: "Changed 47 times today", color: "text-violet-400" },
-      { label: "Dots", value: "Backed up never", color: "text-fuchsia-400" },
-      { label: "Anime", value: "Waifu wallpaper: active", color: "text-pink-400" },
-      { label: "Opacity", value: "Blind but aesthetic", color: "text-cyan-400" },
-      { label: "Status", value: "Breaking configs since 2020", color: "text-yellow-400" },
+      {
+        label: "Theme",
+        value: "Changed 47 times today",
+        color: "terminal-red",
+      },
+      { label: "Dots", value: "Backed up never", color: "terminal-orange" },
+      {
+        label: "Anime",
+        value: "Waifu wallpaper: active",
+        color: "terminal-yellow",
+      },
+      {
+        label: "Opacity",
+        value: "Blind but aesthetic",
+        color: "terminal-green",
+      },
+      {
+        label: "Status",
+        value: "Breaking configs since 2020",
+        color: "terminal-cyan",
+      },
     ],
   },
 };
@@ -238,7 +330,9 @@ export function Hero() {
   }, []);
 
   const currentProfile = profiles[activeProfile as keyof typeof profiles];
-  const currentModuleData = activeModule ? moduleData[activeModule as keyof typeof moduleData] : null;
+  const currentModuleData = activeModule
+    ? moduleData[activeModule as keyof typeof moduleData]
+    : null;
 
   return (
     <section
@@ -279,43 +373,39 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative rounded-2xl overflow-hidden glass-dark border border-white/10 shadow-2xl shadow-violet-500/10"
+          className="relative rounded-2xl overflow-hidden terminal-container"
         >
           {/* Inner glow */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/10 via-fuchsia-500/10 to-violet-500/10 rounded-2xl blur-xl -z-10 opacity-50" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/20 via-fuchsia-500/20 to-violet-500/20 dark:from-violet-500/10 dark:via-fuchsia-500/10 dark:to-violet-500/10 rounded-2xl blur-xl -z-10 opacity-70 dark:opacity-50" />
 
           {/* WAYBAR - TOP BAR */}
-          <div className="flex items-center justify-between px-4 py-2 bg-black/40 border-b border-white/5">
+          <div className="flex items-center justify-between px-4 py-2 terminal-waybar">
             {/* Left - Profile Selectors (Workspaces) */}
             <div className="flex items-center gap-1">
-              {["1", "2", "3", "4"].map((num) => (
+              {["1", "2", "3", "4", "5"].map((num) => (
                 <motion.button
                   key={num}
                   onClick={() => {
                     setActiveProfile(num);
                     setActiveModule(null);
                   }}
-                  whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                  whileHover={{ backgroundColor: "rgba(139, 92, 246, 0.15)" }}
                   className={`px-3 py-1.5 rounded text-xs font-mono transition-all ${
                     activeProfile === num && !activeModule
-                      ? "bg-white/10 text-foreground" 
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/30"
+                      : "text-muted-foreground hover:text-foreground hover:bg-violet-500/10"
                   }`}
                 >
                   {num}
                 </motion.button>
               ))}
-              <span className="px-2 py-1.5 rounded text-xs font-mono text-muted-foreground hover:text-foreground hover:bg-white/5 cursor-pointer">
-                5
-              </span>
             </div>
 
             {/* Center - Window Title */}
             <div className="hidden md:block text-xs font-mono text-muted-foreground">
-              {activeModule 
-                ? `fastfetch --stdout | ${currentModuleData?.name}`
-                : `fastfetch --stdout --profile ${currentProfile.name}`
-              }
+              {activeModule
+                ? `shravya --module ${currentModuleData?.name}`
+                : `shravya --profile -${currentProfile.name}`}
             </div>
 
             {/* Right - Module Icons */}
@@ -323,20 +413,22 @@ export function Hero() {
               {waybarItems.map((item, index) => (
                 <motion.button
                   key={item.id}
-                  onClick={() => setActiveModule(activeModule === item.id ? null : item.id)}
+                  onClick={() =>
+                    setActiveModule(activeModule === item.id ? null : item.id)
+                  }
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 + index * 0.05 }}
-                  whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                  whileHover={{ backgroundColor: "rgba(139, 92, 246, 0.15)" }}
                   className={`relative group p-2 rounded transition-all ${
-                    activeModule === item.id 
-                      ? "bg-white/10 text-foreground" 
-                      : "text-muted-foreground"
+                    activeModule === item.id
+                      ? "bg-violet-500/20 text-violet-700 dark:text-violet-300"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   <item.icon className="w-4 h-4" strokeWidth={1.5} />
                   {/* Tooltip */}
-                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-secondary rounded text-xs font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-card border border-border rounded text-xs font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-lg">
                     {item.tooltip}
                   </div>
                 </motion.button>
@@ -357,9 +449,11 @@ export function Hero() {
                 /* Module View */
                 <div className="mb-8">
                   <div className="flex items-center gap-2 font-mono text-sm mb-4">
-                    <span className="text-green-400">➜</span>
-                    <span className="text-blue-400">~</span>
-                    <span className="text-foreground">{currentModuleData.name}</span>
+                    <span className="terminal-green">➜</span>
+                    <span className="terminal-blue">~</span>
+                    <span className="text-foreground">
+                      {currentModuleData.name}
+                    </span>
                   </div>
                   <div className="pl-6 font-mono text-sm">
                     {currentModuleData.content.map((item, idx) => (
@@ -370,9 +464,15 @@ export function Hero() {
                         transition={{ delay: idx * 0.05 }}
                         className="flex items-baseline gap-3 mb-2"
                       >
-                        <span className={`font-bold min-w-[100px] ${item.color}`}>{item.label}</span>
+                        <span
+                          className={`font-bold min-w-[100px] ${item.color}`}
+                        >
+                          {item.label}
+                        </span>
                         <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">{item.value}</span>
+                        <span className="text-muted-foreground">
+                          {item.value}
+                        </span>
                       </motion.div>
                     ))}
                   </div>
@@ -392,72 +492,151 @@ export function Hero() {
                         {currentProfile.ascii}
                       </pre>
                       <div className="mt-6 flex flex-wrap gap-1">
-                        {["bg-red-500", "bg-yellow-500", "bg-green-500", "bg-cyan-500", "bg-blue-500", "bg-violet-500", "bg-fuchsia-500", "bg-white"].map((color, i) => (
-                          <div key={i} className={`w-6 h-4 rounded ${color}`} />
-                        ))}
+                        <div className="w-6 h-4 rounded bg-[#c53b53] dark:bg-[#f7768e]" />
+                        <div className="w-6 h-4 rounded bg-[#d06d47] dark:bg-[#ff9e64]" />
+                        <div className="w-6 h-4 rounded bg-[#b3873e] dark:bg-[#e0af68]" />
+                        <div className="w-6 h-4 rounded bg-[#587936] dark:bg-[#9ece6a]" />
+                        <div className="w-6 h-4 rounded bg-[#2a7a6f] dark:bg-[#73daca]" />
+                        <div className="w-6 h-4 rounded bg-[#3d59a1] dark:bg-[#7aa2f7]" />
+                        <div className="w-6 h-4 rounded bg-[#7e6bab] dark:bg-[#bb9af7]" />
+                        <div className="w-6 h-4 rounded bg-[#9d6080] dark:bg-[#f7768e]" />
                       </div>
                     </motion.div>
 
                     {/* System Info */}
                     <div className="space-y-2 font-mono text-sm md:text-base">
-                      <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} className="flex items-baseline gap-3">
-                        <span className="text-violet-400 font-bold min-w-[80px]">Name</span>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="flex items-baseline gap-3"
+                      >
+                        <span className="terminal-red font-bold min-w-[80px]">
+                          Name
+                        </span>
                         <span className="text-foreground">→</span>
-                        <span className="text-foreground">{currentProfile.data.name}</span>
+                        <span className="text-foreground">
+                          {currentProfile.data.name}
+                        </span>
                       </motion.div>
 
-                      <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 }} className="flex items-baseline gap-3">
-                        <span className="text-fuchsia-400 font-bold min-w-[80px]">Role</span>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.15 }}
+                        className="flex items-baseline gap-3"
+                      >
+                        <span className="terminal-orange font-bold min-w-[80px]">
+                          Role
+                        </span>
                         <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">{currentProfile.data.role}</span>
+                        <span className="text-muted-foreground">
+                          {currentProfile.data.role}
+                        </span>
                       </motion.div>
 
-                      <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="flex items-baseline gap-3">
-                        <span className="text-blue-400 font-bold min-w-[80px]">Focus</span>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="flex items-baseline gap-3"
+                      >
+                        <span className="terminal-yellow font-bold min-w-[80px]">
+                          Focus
+                        </span>
                         <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">{currentProfile.data.focus}</span>
+                        <span className="text-muted-foreground">
+                          {currentProfile.data.focus}
+                        </span>
                       </motion.div>
 
-                      <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.25 }} className="flex items-baseline gap-3">
-                        <span className="text-cyan-400 font-bold min-w-[80px]">Stack</span>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.25 }}
+                        className="flex items-baseline gap-3"
+                      >
+                        <span className="terminal-green font-bold min-w-[80px]">
+                          Stack
+                        </span>
                         <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">{currentProfile.data.stack}</span>
+                        <span className="text-muted-foreground">
+                          {currentProfile.data.stack}
+                        </span>
                       </motion.div>
 
-                      <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="flex items-baseline gap-3">
-                        <span className="text-green-400 font-bold min-w-[80px]">Editor</span>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="flex items-baseline gap-3"
+                      >
+                        <span className="terminal-cyan font-bold min-w-[80px]">
+                          Editor
+                        </span>
                         <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">{currentProfile.data.editor}</span>
+                        <span className="text-muted-foreground">
+                          {currentProfile.data.editor}
+                        </span>
                       </motion.div>
 
-                      <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.35 }} className="flex items-baseline gap-3">
-                        <span className="text-yellow-400 font-bold min-w-[80px]">WM</span>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.35 }}
+                        className="flex items-baseline gap-3"
+                      >
+                        <span className="terminal-blue font-bold min-w-[80px]">
+                          WM
+                        </span>
                         <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">{currentProfile.data.wm}</span>
+                        <span className="text-muted-foreground">
+                          {currentProfile.data.wm}
+                        </span>
                       </motion.div>
 
-                      <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="flex items-baseline gap-3">
-                        <span className="text-pink-400 font-bold min-w-[80px]">Bugs</span>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="flex items-baseline gap-3"
+                      >
+                        <span className="terminal-purple font-bold min-w-[80px]">
+                          Bugs
+                        </span>
                         <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">{currentProfile.data.bugs}</span>
+                        <span className="text-muted-foreground">
+                          {currentProfile.data.bugs}
+                        </span>
                       </motion.div>
 
-                      <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.45 }} className="flex items-baseline gap-3">
-                        <span className="text-orange-400 font-bold min-w-[80px]">Coffee</span>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.45 }}
+                        className="flex items-baseline gap-3"
+                      >
+                        <span className="terminal-pink font-bold min-w-[80px]">
+                          Coffee
+                        </span>
                         <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">{currentProfile.data.coffee}</span>
+                        <span className="text-muted-foreground">
+                          {currentProfile.data.coffee}
+                        </span>
                       </motion.div>
                     </div>
                   </div>
 
                   {/* Command Output */}
-                  <div className="mt-8 pt-8 border-t border-white/10">
+                  <div className="mt-8 pt-8 border-t border-border/50">
                     <div className="flex items-center gap-2 font-mono text-sm mb-4">
-                      <span className="text-green-400">➜</span>
-                      <span className="text-blue-400">~</span>
-                      <span className="text-foreground">cat personality.txt</span>
+                      <span className="terminal-green">➜</span>
+                      <span className="terminal-blue">~</span>
+                      <span className="text-foreground">
+                        cat personality.txt
+                      </span>
                     </div>
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
@@ -486,15 +665,15 @@ export function Hero() {
               transition={{ delay: 1 }}
               className="flex items-center gap-2 mt-8 font-mono text-sm"
             >
-              <span className="text-green-400">➜</span>
-              <span className="text-blue-400">~</span>
+              <span className="terminal-green">➜</span>
+              <span className="terminal-blue">~</span>
               {mounted && (
                 <motion.span
                   animate={{ opacity: [1, 0, 1] }}
-                  transition={{ 
-                    duration: 1, 
+                  transition={{
+                    duration: 1,
                     repeat: Infinity,
-                    times: [0, 0.5, 1]
+                    times: [0, 0.5, 1],
                   }}
                   className="w-2.5 h-5 bg-violet-500"
                 />
@@ -512,9 +691,13 @@ export function Hero() {
         >
           <motion.a
             href="#projects"
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
-              transition: { type: "spring" as const, stiffness: 400, damping: 10 }
+              transition: {
+                type: "spring" as const,
+                stiffness: 400,
+                damping: 10,
+              },
             }}
             whileTap={{ scale: 0.98 }}
             className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-medium overflow-hidden"
@@ -526,9 +709,13 @@ export function Hero() {
 
           <motion.a
             href="#contact"
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
-              transition: { type: "spring" as const, stiffness: 400, damping: 10 }
+              transition: {
+                type: "spring" as const,
+                stiffness: 400,
+                damping: 10,
+              },
             }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl glass hover:bg-white/10 font-medium transition-colors border border-violet-500/20"
