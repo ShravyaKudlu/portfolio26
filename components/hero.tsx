@@ -133,16 +133,16 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
+      IP: "NJ, USA (where the packets dream in traffic)",
       role: "Full Stack Developer",
-      focus: "JavaScript, React, Node.js",
-      stack: "Next.js, TypeScript, PostgreSQL",
-      editor: "VS Code",
-      shell: "bash",
-      wm: "i3 (tiling newbie)",
-      uptime: "Learning since 2019",
-      status: "It works on my machine",
-      bugs: "console.log everywhere",
-      coffee: "2 cups/day",
+      focus: "JavaScript(the one that rules both kingdoms), python",
+      stack: "TypeScript, Node, React, MongoDB, Tailwind, FastAPI, Django",
+      status: "404: motivation not found (but still shipping)",
+      bugs: 'console.log("still broken") in production',
+      currently: "arguing with CSS specificity at 2 AM",
+      uptime: "grinding since the first npm install",
+      daily: "write 3 classes → refactor 30 → coffee break",
+      Motto: "It works on localhost, ship it",
     },
     personality: [
       "🚀 Building web apps that work perfectly... on localhost.",
@@ -257,16 +257,16 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
-      role: "Linux Enthusiast",
-      focus: "Ricing everything in sight",
-      stack: "Arch, Hyprland, Waybar, Neovim",
-      editor: "Neovim (I use arch btw)",
-      shell: "zsh + starship + powerlevel10k",
-      wm: "Hyprland (master race)",
-      uptime: "42 days uptime (no crashes)",
+      IP: "NJ, USA (latency so low even my ping misses me)",
+      role: "Linux System Developer",
+      focus: "Bash & shell sorcery",
+      stack: "git, tmux, nvim, lua, python",
       status: "Dotfiles on GitHub",
       bugs: "It's a feature in my config",
-      coffee: "I drink the kernel",
+      currently: "chasing the perfect blur-radius harmony",
+      uptime: "42 days uptime (no crashes)",
+      daily: "write 3 classes → refactor 30 → coffee break",
+      Motto: "It works on localhost, ship it",
     },
     personality: [
       "🐧 I use Arch btw. Have I mentioned I use Arch?",
@@ -381,16 +381,16 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
-      role: "Java Developer",
-      focus: "Enterprise applications & Spring Boot",
-      stack: "Java, Spring Boot, Maven, PostgreSQL",
-      editor: "IntelliJ IDEA",
-      shell: "bash",
-      wm: "GNOME (it just works)",
-      uptime: "Since Java 8",
-      status: "NullPointerException free (today)",
+      IP: "NJ, USA (where even my JVM has traffic)",
+      role: "Java Software Engineer",
+      focus: "Java (the enterprise survival kit)",
+      stack: "Java, Spring Boot, Maven/Gradle, mySQL, JPA/hibernate, IntelliJ",
+      status: "JVM warmed up, soul still cold",
       bugs: "Checked exceptions everywhere",
-      coffee: "Enterprise-grade espresso",
+      currently: "fighting legacy XML configs",
+      uptime: "running since Java 8 (trauma included)",
+      daily: "write 3 classes → refactor 30 → coffee break",
+      Motto: "It compiled?",
     },
     personality: [
       "☕ I write Java. I drink coffee. It's basically the same thing.",
@@ -507,16 +507,16 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
-      role: "AI/ML Engineer",
-      focus: "Teaching LLMs to behave",
-      stack: "Python, LangChain, PyTorch, OpenAI",
-      editor: "Neovim + Jupyter",
-      shell: "zsh + custom AI prompts",
-      wm: "Hyprland + AI widgets",
-      uptime: "Training models 24/7",
-      status: "Hallucinating slightly",
+      IP: "NJ, USA (my tokens still load faster than NYC traffic)",
+      role: "Applied AI Engineer",
+      focus: "Python(Teaching LLMs to behave)",
+      stack: "Python, LangChain, VectorDB, FastAPI, Ollama, RAG, MCP",
+      status: "generating... (please stand by)",
       bugs: "AI said it was fine",
-      coffee: "Dark roast, intravenous",
+      currently: "trying to make an LLM stop roasting me",
+      uptime: "online since first meaningful response from GPT-3",
+      daily: "",
+      Motto: "Just add RAG (solves 83% of problems)",
     },
     personality: [
       "🤖 I build AI agents. Sometimes they answer back. It's concerning.",
@@ -617,16 +617,17 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
+      IP: "NJ, USA (aesthetic packets only)",
       role: "Vibe Coder",
       focus: "Ship first, fix never",
-      stack: "ChatGPT, Copilot, vibes, prayers",
-      editor: "Whatever opens fastest",
-      shell: "ctrl+c, ctrl+v",
-      wm: "Floating windows (chaos)",
-      uptime: "Last commit 5 mins ago",
-      status: "90% done (last 10% is 90%)",
+      stack:
+        "ChatGPT, Copilot, cloude, opencode, vibes, prayers, ctrl+c, ctrl+v",
+      status: "hallucinating slighly",
       bugs: "Will fix in next sprint",
-      coffee: "Energy drink + optimism",
+      currently: "trying to make an LLM stop roasting me",
+      uptime: "Everyday on something",
+      daily: "prompt → wait → regret model choice → repeat",
+      Motto: "see no code, do no code, hear no code",
     },
     personality: [
       "✨ Vibe coding: code so fast you forget what the function does.",
@@ -653,7 +654,7 @@ const moduleData = {
     name: "caffeine",
     content: [
       { label: "Level", value: "CRITICAL", color: "terminal-red" },
-      { label: "Cups Today", value: "[▓▓▓▓▓▓▓▓▓▓░░░░]", color: "terminal-orange" },
+      { label: "Cups Today", value: "∞", color: "terminal-orange" },
       { label: "Heart Rate", value: "Probably fine", color: "terminal-yellow" },
       { label: "Sleep", value: "What's that?", color: "terminal-green" },
       { label: "Mood", value: "JITTERY", color: "terminal-cyan" },
@@ -862,9 +863,7 @@ export function Hero() {
                         transition={{ delay: idx * 0.05 }}
                         className="grid grid-cols-[120px_auto_1fr] gap-3 mb-2 items-baseline"
                       >
-                        <span
-                          className={`font-bold ${item.color}`}
-                        >
+                        <span className={`font-bold ${item.color}`}>
                           {item.label}
                         </span>
                         <span className="text-foreground">→</span>
@@ -893,142 +892,58 @@ export function Hero() {
 
                     {/* System Info */}
                     <div className="space-y-2 font-mono text-sm md:text-base">
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="flex items-baseline gap-3"
-                      >
-                        <span className="terminal-red font-bold min-w-[80px]">
-                          Name
-                        </span>
-                        <span className="text-foreground">→</span>
-                        <span className="text-foreground">
-                          {currentProfile.data.name}
-                        </span>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.15 }}
-                        className="flex items-baseline gap-3"
-                      >
-                        <span className="terminal-orange font-bold min-w-[80px]">
-                          Role
-                        </span>
-                        <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">
-                          {currentProfile.data.role}
-                        </span>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="flex items-baseline gap-3"
-                      >
-                        <span className="terminal-yellow font-bold min-w-[80px]">
-                          Focus
-                        </span>
-                        <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">
-                          {currentProfile.data.focus}
-                        </span>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.25 }}
-                        className="flex items-baseline gap-3"
-                      >
-                        <span className="terminal-green font-bold min-w-[80px]">
-                          Stack
-                        </span>
-                        <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">
-                          {currentProfile.data.stack}
-                        </span>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="flex items-baseline gap-3"
-                      >
-                        <span className="terminal-cyan font-bold min-w-[80px]">
-                          Editor
-                        </span>
-                        <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">
-                          {currentProfile.data.editor}
-                        </span>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.35 }}
-                        className="flex items-baseline gap-3"
-                      >
-                        <span className="terminal-blue font-bold min-w-[80px]">
-                          WM
-                        </span>
-                        <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">
-                          {currentProfile.data.wm}
-                        </span>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="flex items-baseline gap-3"
-                      >
-                        <span className="terminal-purple font-bold min-w-[80px]">
-                          Bugs
-                        </span>
-                        <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">
-                          {currentProfile.data.bugs}
-                        </span>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.45 }}
-                        className="flex items-baseline gap-3"
-                      >
-                        <span className="terminal-pink font-bold min-w-[80px]">
-                          Coffee
-                        </span>
-                        <span className="text-foreground">→</span>
-                        <span className="text-muted-foreground">
-                          {currentProfile.data.coffee}
-                        </span>
-                      </motion.div>
-
-                      {/* Color Palette - Under Coffee */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                        className="flex flex-wrap gap-1 mt-12"
-                      >
-                        <div className="w-6 h-4 rounded bg-[#c53b53] dark:bg-[#f7768e]" />
-                        <div className="w-6 h-4 rounded bg-[#d06d47] dark:bg-[#ff9e64]" />
-                        <div className="w-6 h-4 rounded bg-[#b3873e] dark:bg-[#e0af68]" />
-                        <div className="w-6 h-4 rounded bg-[#587936] dark:bg-[#9ece6a]" />
-                        <div className="w-6 h-4 rounded bg-[#2a7a6f] dark:bg-[#73daca]" />
-                        <div className="w-6 h-4 rounded bg-[#3d59a1] dark:bg-[#7aa2f7]" />
-                        <div className="w-6 h-4 rounded bg-[#7e6bab] dark:bg-[#bb9af7]" />
-                        <div className="w-6 h-4 rounded bg-[#9d6080] dark:bg-[#f7768e]" />
-                      </motion.div>
+                      {Object.entries(currentProfile.data).map(
+                        ([key, value], idx) => {
+                          const colors = [
+                            "terminal-red",
+                            "terminal-orange",
+                            "terminal-yellow",
+                            "terminal-green",
+                            "terminal-cyan",
+                            "terminal-blue",
+                            "terminal-purple",
+                            "terminal-pink",
+                          ];
+                          const color = colors[idx % colors.length];
+                          const isMotto = key.toLowerCase() === "motto";
+                          return (
+                            <>
+                              <motion.div
+                                key={key}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.1 + idx * 0.05 }}
+                                className="grid grid-cols-[120px_auto_1fr] gap-3 items-baseline"
+                              >
+                                <span className={`${color} font-bold`}>
+                                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                                </span>
+                                <span className="text-foreground">→</span>
+                                <span className="text-muted-foreground">
+                                  {value as string}
+                                </span>
+                              </motion.div>
+                              {isMotto && (
+                                <motion.div
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: 0.1 + (idx + 1) * 0.05 }}
+                                  className="flex flex-wrap gap-1 mt-6"
+                                >
+                                  <div className="w-6 h-4 rounded bg-[#c53b53] dark:bg-[#f7768e]" />
+                                  <div className="w-6 h-4 rounded bg-[#d06d47] dark:bg-[#ff9e64]" />
+                                  <div className="w-6 h-4 rounded bg-[#b3873e] dark:bg-[#e0af68]" />
+                                  <div className="w-6 h-4 rounded bg-[#587936] dark:bg-[#9ece6a]" />
+                                  <div className="w-6 h-4 rounded bg-[#2a7a6f] dark:bg-[#73daca]" />
+                                  <div className="w-6 h-4 rounded bg-[#3d59a1] dark:bg-[#7aa2f7]" />
+                                  <div className="w-6 h-4 rounded bg-[#7e6bab] dark:bg-[#bb9af7]" />
+                                  <div className="w-6 h-4 rounded bg-[#9d6080] dark:bg-[#f7768e]" />
+                                </motion.div>
+                              )}
+                            </>
+                          );
+                        },
+                      )}
                     </div>
                   </div>
 
