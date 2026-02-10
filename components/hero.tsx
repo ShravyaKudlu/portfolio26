@@ -10,6 +10,7 @@ import {
   Coffee,
   Bug,
   Palette,
+  Terminal,
 } from "lucide-react";
 
 const slideUpVariants: Variants = {
@@ -654,7 +655,7 @@ const moduleData = {
     name: "caffeine",
     content: [
       { label: "Level", value: "CRITICAL", color: "terminal-red" },
-      { label: "Cups Today", value: "∞", color: "terminal-orange" },
+      { label: "Cups Today", value: "[▓▓▓▓▓▓▓▓▓▓░░░░]", color: "terminal-orange" },
       { label: "Heart Rate", value: "Probably fine", color: "terminal-yellow" },
       { label: "Sleep", value: "What's that?", color: "terminal-green" },
       { label: "Mood", value: "JITTERY", color: "terminal-cyan" },
@@ -704,6 +705,32 @@ const moduleData = {
       },
     ],
   },
+  arch: {
+    name: "archbtw",
+    content: [
+      {
+        label: "Distro",
+        value: "Arch Linux",
+        color: "terminal-green",
+      },
+      { label: "Kernel", value: "linux-zen", color: "terminal-green" },
+      {
+        label: "WM",
+        value: "Hyprland",
+        color: "terminal-green",
+      },
+      {
+        label: "Editor",
+        value: "Neovim (btw)",
+        color: "terminal-green",
+      },
+      {
+        label: "Status",
+        value: "I use Arch, btw",
+        color: "terminal-green",
+      },
+    ],
+  },
 };
 
 const waybarItems = [
@@ -711,6 +738,7 @@ const waybarItems = [
   { id: "coffee", icon: Coffee, tooltip: "Coffee Status" },
   { id: "bugs", icon: Bug, tooltip: "Bug Counter" },
   { id: "rice", icon: Palette, tooltip: "Rice Status" },
+  { id: "arch", icon: Terminal, tooltip: "arch(BTW)", highlight: "terminal-green" },
 ];
 
 export function Hero() {
@@ -821,8 +849,12 @@ export function Hero() {
                   whileHover={{ backgroundColor: "rgba(139, 92, 246, 0.15)" }}
                   className={`relative group p-2 rounded transition-all ${
                     activeModule === item.id
-                      ? "bg-violet-500/20 text-violet-700 dark:text-violet-300"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? item.highlight 
+                        ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                        : "bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/30"
+                      : item.highlight
+                        ? "text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300"
+                        : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   <item.icon className="w-4 h-4" strokeWidth={1.5} />
