@@ -94,24 +94,32 @@ export function About() {
           variants={containerVariants}
           className="grid lg:grid-cols-2 gap-16 items-center"
         >
-          <div className="space-y-8">
+          <div className="space-y-8 flex flex-col items-center">
+            <motion.div variants={slideFromLeft} className="flex justify-center w-full">
+              <img
+                src="/Shravya.png"
+                alt="Shravya"
+                className="w-64 h-64 object-cover rounded-2xl mx-auto"
+              />
+            </motion.div>
+
             <motion.div variants={slideFromLeft} className="space-y-4 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                I&apos;m a software engineer with a passion for building beautiful, 
-                functional applications. My journey in tech started with curiosity 
-                and has evolved into a deep love for creating solutions that make 
+                I&apos;m a software engineer with a passion for building beautiful,
+                functional applications. My journey in tech started with curiosity
+                and has evolved into a deep love for creating solutions that make
                 a real impact.
               </p>
               <p className="text-lg leading-relaxed">
-                When I&apos;m not coding, you&apos;ll find me exploring new technologies, 
-                contributing to open source, or enjoying a good cup of coffee while 
+                When I&apos;m not coding, you&apos;ll find me exploring new technologies,
+                contributing to open source, or enjoying a good cup of coffee while
                 brainstorming the next big idea.
               </p>
             </motion.div>
 
             <motion.div 
               variants={slideFromLeft}
-              className="grid grid-cols-3 gap-6"
+              className="grid grid-cols-3 gap-6 w-full"
             >
               {[
                 { value: "5+", label: "Years Experience" },
@@ -127,7 +135,12 @@ export function About() {
                     type: "spring" as const,
                     stiffness: 200,
                   }}
-                  className="text-center p-4 rounded-xl glass"
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -5,
+                    transition: { type: "spring" as const, stiffness: 300 }
+                  }}
+                  className="text-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-pointer"
                 >
                   <div className="text-3xl font-bold gradient-text">
                     {stat.value}
