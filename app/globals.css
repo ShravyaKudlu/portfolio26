@@ -353,14 +353,16 @@ html.lenis {
   background-clip: text;
 }
 
-/* ASCII Art - consistent rendering across browsers */
-.ascii-art {
-  font-family: 'Courier New', Courier, 'Lucida Console', Monaco, monospace;
-  white-space: pre;
-  line-height: 1.15;
-  letter-spacing: 0;
-  font-variant-ligatures: none;
-  -webkit-font-variant-ligatures: none;
-  -webkit-font-feature-settings: "liga" 0, "calt" 0;
-  font-feature-settings: "liga" 0, "calt" 0;
+@layer utilities {
+  /* ASCII Art - consistent rendering across browsers */
+  pre.ascii-art {
+    font-family: 'Courier New', Courier, 'Lucida Console', Monaco, monospace !important;
+    white-space: pre !important;
+    line-height: 1.15;
+    letter-spacing: 0;
+    font-variant-ligatures: none;
+    -webkit-font-variant-ligatures: none;
+    -webkit-font-feature-settings: "liga" 0, "calt" 0;
+    font-feature-settings: "liga" 0, "calt" 0;
+  }
 }
