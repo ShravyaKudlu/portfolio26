@@ -39,9 +39,9 @@ export function Chatbot() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("`${process.env.GEMENI_API_URL}/chat`", {
+      const response = await fetch("/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.GEMENI_API_KEY}` },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: userMessage,
           history: messages.map((m) => ({ role: m.role, content: m.content })),
@@ -60,7 +60,7 @@ export function Chatbot() {
         {
           role: "assistant",
           content:
-            "Sorry, I'm having trouble connecting right now. Please try again or email hello@shravya.dev directly!",
+            "Sorry, I'm having trouble connecting right now. Please try again or email shravyakudlu@gmail.com directly!",
         },
       ]);
     } finally {
