@@ -688,7 +688,11 @@ const moduleData = {
     name: "caffeine",
     content: [
       { label: "Level", value: "CRITICAL", color: "terminal-red" },
-      { label: "Cups Today", value: "[▓▓▓▓▓▓▓▓▓▓░░░░]", color: "terminal-orange" },
+      {
+        label: "Cups Today",
+        value: "[▓▓▓▓▓▓▓▓▓▓░░░░]",
+        color: "terminal-orange",
+      },
       { label: "Heart Rate", value: "Probably fine", color: "terminal-yellow" },
       { label: "Sleep", value: "What's that?", color: "terminal-green" },
       { label: "Mood", value: "JITTERY", color: "terminal-cyan" },
@@ -771,7 +775,12 @@ const waybarItems = [
   { id: "coffee", icon: Coffee, tooltip: "Coffee Status" },
   { id: "bugs", icon: Bug, tooltip: "Bug Counter" },
   { id: "rice", icon: Palette, tooltip: "Rice Status" },
-  { id: "arch", icon: Terminal, tooltip: "arch(BTW)", highlight: "terminal-green" },
+  {
+    id: "arch",
+    icon: Terminal,
+    tooltip: "arch(BTW)",
+    highlight: "terminal-green",
+  },
 ];
 
 export function Hero() {
@@ -791,11 +800,11 @@ export function Hero() {
 
   // Default to dark theme during SSR/hydration to prevent mismatches
   const isDark = resolvedTheme === "dark" || !resolvedTheme;
-  
+
   const currentAsciiFace = isDark
     ? currentProfile.asciiFaceDark
     : currentProfile.asciiFaceLight;
-  
+
   const currentAsciiText = isDark
     ? currentProfile.asciiTextDark
     : currentProfile.asciiTextLight;
@@ -888,7 +897,7 @@ export function Hero() {
                   whileHover={{ backgroundColor: "rgba(139, 92, 246, 0.15)" }}
                   className={`relative group p-2 rounded transition-all ${
                     activeModule === item.id
-                      ? item.highlight 
+                      ? item.highlight
                         ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
                         : "bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/30"
                       : "text-muted-foreground hover:text-foreground"
