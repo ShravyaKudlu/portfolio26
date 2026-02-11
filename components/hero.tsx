@@ -973,7 +973,12 @@ export function Hero() {
                         </pre>
                         <pre
                           suppressHydrationWarning
-                          className="ascii-art text-[5.5px] leading-[1.1] text-fuchsia-400 select-none"
+                          className="ascii-art-mobile text-[5px] sm:text-[5.5px] leading-[1.2] text-fuchsia-400 dark:text-fuchsia-400 select-none"
+                          style={{
+                            fontFamily: 'SF Mono, Monaco, "Courier New", Consolas, monospace',
+                            transform: 'translateZ(0)',
+                            backfaceVisibility: 'hidden',
+                          }}
                         >
                           {currentAsciiText}
                         </pre>

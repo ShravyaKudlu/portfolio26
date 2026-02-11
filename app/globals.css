@@ -377,4 +377,18 @@ html.lenis {
     font-variant-numeric: tabular-nums;
     -webkit-font-variant-numeric: tabular-nums;
   }
+  
+  .ascii-art-mobile {
+    font-family: SF Mono, Monaco, 'Courier New', Consolas, monospace !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: geometricPrecision !important;
+    -webkit-text-size-adjust: none !important;
+    text-size-adjust: none !important;
+    font-variant-numeric: tabular-nums !important;
+    -webkit-font-variant-numeric: tabular-nums !important;
+    letter-spacing: 0 !important;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
 }
