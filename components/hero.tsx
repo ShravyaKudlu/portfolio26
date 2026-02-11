@@ -973,11 +973,12 @@ export function Hero() {
                         </pre>
                         <pre
                           suppressHydrationWarning
-                          className="ascii-art text-[5.5px] leading-[1.1] text-violet-500 dark:text-violet-400 select-none antialiased"
+                          className="ascii-art text-[7px] sm:text-[8px] leading-[1.05] text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none"
                           style={{ 
-                            WebkitFontSmoothing: 'antialiased',
-                            MozOsxFontSmoothing: 'grayscale',
-                            textRendering: 'geometricPrecision'
+                            WebkitFontSmoothing: 'subpixel-antialiased',
+                            MozOsxFontSmoothing: 'auto',
+                            textRendering: 'optimizeLegibility',
+                            fontWeight: '700'
                           }}
                         >
                           {currentAsciiText}
