@@ -917,7 +917,7 @@ export function Hero() {
                       transition={{ delay: 0.1, type: "spring" }}
                       className="hidden md:block"
                     >
-                      <pre className="font-mono text-[7px] md:text-[9px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none">
+                      <pre className="ascii-art text-[7px] md:text-[9px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none">
                         {currentAscii}
                       </pre>
                     </motion.div>
