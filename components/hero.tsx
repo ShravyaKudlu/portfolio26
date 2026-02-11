@@ -852,9 +852,7 @@ export function Hero() {
                       ? item.highlight 
                         ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
                         : "bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/30"
-                      : item.highlight
-                        ? "text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300"
-                        : "text-muted-foreground hover:text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   <item.icon className="w-4 h-4" strokeWidth={1.5} />
@@ -917,7 +915,10 @@ export function Hero() {
                       transition={{ delay: 0.1, type: "spring" }}
                       className="hidden md:block"
                     >
-                      <pre className="ascii-art text-[7px] md:text-[9px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none">
+                      <pre
+                        suppressHydrationWarning
+                        className="ascii-art text-[7px] md:text-[9px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none"
+                      >
                         {currentAscii}
                       </pre>
                     </motion.div>
@@ -939,9 +940,8 @@ export function Hero() {
                           const color = colors[idx % colors.length];
                           const isMotto = key.toLowerCase() === "motto";
                           return (
-                            <>
+                            <div key={key}>
                               <motion.div
-                                key={key}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.1 + idx * 0.05 }}
@@ -972,7 +972,7 @@ export function Hero() {
                                   <div className="w-6 h-4 rounded bg-[#9d6080] dark:bg-[#f7768e]" />
                                 </motion.div>
                               )}
-                            </>
+                            </div>
                           );
                         },
                       )}
