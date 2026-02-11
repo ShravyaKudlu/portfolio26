@@ -11,6 +11,7 @@ import { Education } from "@/components/education";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { Chatbot } from "@/components/chatbot";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         <Education />
         <Contact />
         <Footer />
+        <Chatbot />
       </main>
     </SmoothScroll>
   );
