@@ -187,7 +187,7 @@ const profiles = {
 ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗               
 ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝               
                                                        
-███████╗██╗   ██╗███████╗███████████████╗███╗   ███╗
+███████╗██╗   ██╗███████╗████████████████╗███╗   ███╗
 ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║
 ███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║
 ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║
@@ -238,7 +238,7 @@ const profiles = {
 ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗               
 ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝               
                                                        
-███████╗██╗   ██╗███████╗███████████████╗███╗   ███╗
+███████╗██╗   ██╗███████╗████████████████╗███╗   ███╗
 ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║
 ███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║
 ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║
@@ -641,7 +641,7 @@ const profiles = {
  ╚████╔╝ ██║██████╔╝███████╗             
   ╚═══╝  ╚═╝╚═════╝ ╚══════╝             
                                           
- ██████╗ ██████╗ ██████╗ ███████╗██████╗ 
+ ██████╗ ██████╗ ██████╗ ███████╗███████  
 ██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔══██╗
 ██║     ██║   ██║██║  ██║█████╗  ██████╔╝
 ██║     ██║   ██║██║  ██║██╔══╝  ██╔══██╗
@@ -973,11 +973,12 @@ export function Hero() {
                         </pre>
                         <pre
                           suppressHydrationWarning
-                          className="ascii-art-mobile text-[5px] sm:text-[5.5px] leading-[1.2] text-fuchsia-400 dark:text-fuchsia-400 select-none"
+                          className="ascii-art-mobile text-[5px] sm:text-[5.5px] leading-[1.2] text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none"
                           style={{
-                            fontFamily: 'SF Mono, Monaco, "Courier New", Consolas, monospace',
-                            transform: 'translateZ(0)',
-                            backfaceVisibility: 'hidden',
+                            fontFamily:
+                              '"Courier New", Courier, "Roboto Mono", "Noto Sans Mono", Consolas, monospace',
+                            transform: "translateZ(0)",
+                            backfaceVisibility: "hidden",
                           }}
                         >
                           {currentAsciiText}
