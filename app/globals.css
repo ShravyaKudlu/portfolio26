@@ -169,6 +169,12 @@ html.lenis {
     @apply bg-background text-foreground;
     overflow-x: hidden;
   }
+  /* Reset pre elements to prevent inherited styles from interfering with ASCII art */
+  pre {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 /* Custom gradient animations */
@@ -356,13 +362,24 @@ html.lenis {
 @layer utilities {
   /* ASCII Art - consistent rendering across browsers */
   pre.ascii-art {
-    font-family: 'Courier New', Courier, 'Lucida Console', Monaco, monospace !important;
+    font-family: Consolas, 'Courier New', Courier, monospace !important;
     white-space: pre !important;
-    line-height: 1.15;
+    line-height: 1.2;
     letter-spacing: 0;
     font-variant-ligatures: none;
     -webkit-font-variant-ligatures: none;
     -webkit-font-feature-settings: "liga" 0, "calt" 0;
     font-feature-settings: "liga" 0, "calt" 0;
+    /* Force all characters to same width */
+    font-variant-numeric: tabular-nums;
   }
+}
+
+/* Fallback for Tailwind v4 - ensure ascii-art class works */
+pre[class*="ascii-art"] {
+  font-family: Consolas, 'Courier New', Courier, monospace !important;
+  white-space: pre !important;
+  line-height: 1.2;
+  font-variant-ligatures: none;
+  font-variant-numeric: tabular-nums;
 }
