@@ -363,4 +363,18 @@ html.lenis {
   -webkit-font-variant-ligatures: none;
   -webkit-font-feature-settings: "liga" 0, "calt" 0;
   font-feature-settings: "liga" 0, "calt" 0;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Mobile-specific ASCII art fixes */
+@media screen and (max-width: 768px) {
+  .ascii-art {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-variant-numeric: tabular-nums;
+  }
 }
