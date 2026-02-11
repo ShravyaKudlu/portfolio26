@@ -918,7 +918,7 @@ export function Hero() {
                       className="hidden md:block"
                     >
                       <pre className="ascii-art text-[7px] md:text-[9px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none">
-                        {currentAscii}
+                        {mounted ? currentAscii : currentProfile.asciiDark}
                       </pre>
                     </motion.div>
 
@@ -939,9 +939,8 @@ export function Hero() {
                           const color = colors[idx % colors.length];
                           const isMotto = key.toLowerCase() === "motto";
                           return (
-                            <>
+                            <div key={key}>
                               <motion.div
-                                key={key}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.1 + idx * 0.05 }}
@@ -972,7 +971,7 @@ export function Hero() {
                                   <div className="w-6 h-4 rounded bg-[#9d6080] dark:bg-[#f7768e]" />
                                 </motion.div>
                               )}
-                            </>
+                            </div>
                           );
                         },
                       )}
