@@ -952,19 +952,33 @@ export function Hero() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.1, type: "spring" }}
-                      className="block"
+                      className="flex flex-col md:block gap-4"
                     >
-                      {/* Face ASCII - Desktop only */}
+                      {/* Mobile: Face on left, Text on right */}
+                      <div className="flex flex-row gap-4 md:hidden items-start">
+                        <pre
+                          suppressHydrationWarning
+                          className="ascii-art text-[4px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none flex-shrink-0"
+                        >
+                          {currentAsciiFace}
+                        </pre>
+                        <pre
+                          suppressHydrationWarning
+                          className="ascii-art text-[5px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none"
+                        >
+                          {currentAsciiText}
+                        </pre>
+                      </div>
+                      {/* Desktop: Face on top, Text below */}
                       <pre
                         suppressHydrationWarning
                         className="hidden md:block ascii-art text-[7px] md:text-[9px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none mb-4"
                       >
                         {currentAsciiFace}
                       </pre>
-                      {/* Text ASCII - All screens */}
                       <pre
                         suppressHydrationWarning
-                        className="ascii-art text-[5px] sm:text-[6px] md:text-[9px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none"
+                        className="hidden md:block ascii-art text-[7px] md:text-[9px] leading-tight text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-purple-400 select-none"
                       >
                         {currentAsciiText}
                       </pre>
