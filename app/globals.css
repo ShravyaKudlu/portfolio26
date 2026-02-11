@@ -379,7 +379,7 @@ html.lenis {
   }
   
   .ascii-art-mobile {
-    font-family: SF Mono, Monaco, 'Courier New', Consolas, monospace !important;
+    font-family: 'Courier New', Courier, 'Roboto Mono', 'Noto Sans Mono', Consolas, monospace !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
     text-rendering: geometricPrecision !important;
@@ -390,5 +390,22 @@ html.lenis {
     letter-spacing: 0 !important;
     transform: translateZ(0);
     backface-visibility: hidden;
+  }
+}
+
+/* Android-specific fixes - only for text, not face */
+@media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .ascii-art-mobile {
+    font-family: 'Roboto Mono', 'Noto Sans Mono', 'Courier New', Courier, monospace !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.15 !important;
+  }
+  
+  /* Keep face ASCII art with original spacing */
+  .ascii-art {
+    font-family: 'Courier New', Courier, 'Lucida Console', Monaco, monospace !important;
+    letter-spacing: 0 !important;
+    line-height: 1.15 !important;
   }
 }
