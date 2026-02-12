@@ -12,7 +12,13 @@ import {
   Palette,
   Terminal,
 } from "lucide-react";
-
+const logs = [
+  "tail -f /var/log/brain.log",
+  "cat /home/shravya/.daily_rituals",
+  "tree -L 3 src/com/shravya/project/",
+  "ps aux | grep agent",
+  "cat ~/.config/vibes/session.yaml",
+];
 const slideUpVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -132,23 +138,26 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
-      IP: "NJ, USA (where the packets dream in traffic)",
       role: "Full Stack Developer",
       focus: "JavaScript(the one that rules both kingdoms), python",
       stack: "TypeScript, Node, React, MongoDB, Tailwind, FastAPI, Django",
-      status: "404: motivation not found (but still shipping)",
+      status: "TypeError: pending 88 new React libs (and counting)",
       bugs: 'console.log("still broken") in production',
-      currently: "arguing with CSS specificity at 2 AM",
-      uptime: "grinding since the first npm install",
-      daily: "write 3 classes → refactor 30 → coffee break",
+      currently: "Arguing with yellow deprecation logs at 2AM",
+      uptime: "Grinding since node_modules was born",
+      daily: "Write component → Install 4 new packages → refactor",
       Motto: "It works on localhost, ship it",
     },
     personality: [
-      "🚀 Building web apps that work perfectly... on localhost.",
-      "💻 My console has more warnings than a construction site.",
-      "🎨 CSS is my passion. Just kidding, I copy from StackOverflow.",
-      "📦 node_modules is 99% of my disk space.",
-      "🔧 Full stack means I can break both frontend AND backend.",
+      "",
+      `- Commits: "feat: add feature" → "fix: fix feature" → "fix: fix of fix" → "WORKING"`,
+      "- I solve problems. Sometimes I create them first",
+      "- Building dreams in localhost. Debugging nightmares in production",
+    ],
+    log: [
+      `[03:47] INFO: Brilliant idea detected`,
+      `[03:48] WARN: Requires rewriting entire codebase`,
+      `[03:49] ERROR: Idea abandoned`,
     ],
   },
   "2": {
@@ -187,7 +196,7 @@ const profiles = {
 ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗               
 ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝               
                                                        
-███████╗██╗   ██╗███████╗███████████████╗███╗   ███╗
+███████╗██╗   ██╗███████╗████████████████╗███╗   ███╗
 ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║
 ███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║
 ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║
@@ -238,7 +247,7 @@ const profiles = {
 ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗               
 ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝               
                                                        
-███████╗██╗   ██╗███████╗███████████████╗███╗   ███╗
+███████╗██╗   ██╗███████╗████████████████╗███╗   ███╗
 ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║
 ███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║
 ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║
@@ -254,23 +263,29 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
-      IP: "NJ, USA (latency so low even my ping misses me)",
       role: "Linux System Developer",
       focus: "Bash & shell sorcery",
-      stack: "git, tmux, nvim, lua, python",
-      status: "Dotfiles on GitHub",
-      bugs: "It's a feature in my config",
-      currently: "chasing the perfect blur-radius harmony",
+      stack: "Git, Tmux, Nvim, Lua, Python",
+      status: ":Terminal resident",
+      bugs: "Config features",
+      currently: "Chasing the one-liner that replaces 200 lines",
       uptime: "42 days uptime (no crashes)",
-      daily: "write 3 classes → refactor 30 → coffee break",
-      Motto: "It works on localhost, ship it",
+      daily: "Prototype → Automate → Polish → Commit",
+      Motto: "Script it once, never touch again",
     },
     personality: [
-      "🐧 I use Arch btw. Have I mentioned I use Arch?",
-      "🎨 My ricing config is 10,000 lines. I change it daily.",
+      "- I use Arch btw. Have I mentioned I use Arch?",
+      `- Commits: "feat: add script" → "fix: conf" → "fix: confs conf" → "AUTOMATED"`,
       "⌨️ Neovim isn't an editor, it's a lifestyle. Can't exit though.",
       "🖥️ My terminal has more colors than my social life.",
       "⚙️ If it's not compiled from source, is it even software?",
+    ],
+    log: [
+      `#!bin/bash`,
+      `# 1. Check Arch news (in case something broke overnight)`,
+      `# 2. Update system: yay -Syu`,
+      `# 3. Fix what the update broke`,
+      `6. Stay on Arch btw`,
     ],
   },
   "3": {
@@ -376,23 +391,31 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
-      IP: "NJ, USA (where even my JVM has traffic)",
       role: "Java Software Engineer",
       focus: "Java (the enterprise survival kit)",
-      stack: "Java, Spring Boot, Maven/Gradle, mySQL, JPA/hibernate, IntelliJ",
+      stack: "Spring Boot, Maven/Gradle, mySQL, JPA/hibernate, IntelliJ, mySQL",
       status: "JVM warmed up, soul still cold",
       bugs: "Checked exceptions everywhere",
-      currently: "fighting legacy XML configs",
-      uptime: "running since Java 8 (trauma included)",
-      daily: "write 3 classes → refactor 30 → coffee break",
-      Motto: "It compiled?",
+      currently: "Fighting legacy XML configs",
+      uptime: "Running since Java 8 (trauma included)",
+      daily: "Write 3 classes → Refactor 30",
+      Motto: "It compiles → Therefore it works (right?)",
     },
     personality: [
       "☕ I write Java. I drink coffee. It's basically the same thing.",
+      `- Commits: "feat: abstraction" → "refactor: refactor" → "refactor: deeper" → "refactor: extreme" → "COMPLILES"`,
       "🏢 Enterprise development: where simple things take 47 XML files.",
       "📝 AbstractFactoryBuilderProviderImpl: Because why be simple?",
       "🐌 My code compiles in 5 minutes. My IDE needs 16GB RAM.",
       "🔧 Maven downloads the internet. Every. Single. Time.",
+    ],
+    log: [
+      `src/com/shravya/project/
+  ├── AbstractBaseFactoryManagerProvider.java
+  ├── SingletonProxyBeanFactoryConfigurationBuilder.java
+  ├── EnterpriseBusinessLogicServiceImpl.java
+  ├── GenericRepositoryDaoHelperUtility.java
+  └── TheActualCodeThatDoesStuff.java`,
     ],
   },
   "4": {
@@ -498,23 +521,29 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
-      IP: "NJ, USA (my tokens still load faster than NYC traffic)",
       role: "Applied AI Engineer",
       focus: "Python(Teaching LLMs to behave)",
-      stack: "Python, LangChain, VectorDB, FastAPI, Ollama, RAG, MCP",
-      status: "generating... (please stand by)",
-      bugs: "AI said it was fine",
-      currently: "trying to make an LLM stop roasting me",
-      uptime: "online since first meaningful response from GPT-3",
-      daily: "",
+      stack: "LangChain, VectorDB, FastAPI, Ollama, RAG, MCP",
+      status: "Generating... (please stand by)",
+      bugs: `"High confidence" hallucination detected`,
+      currently: "Fighting context pollution and losing",
+      uptime: `Since gpt-3 first said "Hello World"`,
+      daily: "Prompt → Add context → MCP → Pollution → Rerank",
       Motto: "Just add RAG (solves 83% of problems)",
     },
     personality: [
       "🤖 I build AI agents. Sometimes they answer back. It's concerning.",
+      `- Commits: "feat: pipelines" → "chore: added MCP" → "feat: added context" → "revert: removed context" → "WORKS"`,
       "🧠 My models hallucinate less than I do after 3 AM.",
       "⚡ Prompt engineering: politely asking AI to not make things up.",
       "📊 Vector databases hold my hopes, dreams, and embeddings.",
       "🔄 Spent 6 months training. Model learned to output '42'.",
+    ],
+    log: [
+      `shravya   2847  85.3  12.4  python agent_orchestrator.py --state=thinking`,
+      `shravya   2848  45.7   8.1  python tool_selector.py --confidence=low`,
+      `shravya   2849  92.1  15.2  python reasoning_loop.py --stuck=true`,
+      `shravya   2850   3.2   2.1  python token_counter.py --cost=rising`,
     ],
   },
   "5": {
@@ -651,27 +680,40 @@ const profiles = {
     `,
     data: {
       name: "Shravya",
-      IP: "NJ, USA (aesthetic packets only)",
       role: "Vibe Coder",
-      focus: "Ship first, fix never",
+      focus: "Momentum > Perfection",
       stack:
-        "ChatGPT, Copilot, cloude, opencode, vibes, prayers, ctrl+c, ctrl+v",
-      status: "hallucinating slighly",
-      bugs: "Will fix in next sprint",
-      currently: "trying to make an LLM stop roasting me",
-      uptime: "Everyday on something",
-      daily: "prompt → wait → regret model choice → repeat",
-      Motto: "see no code, do no code, hear no code",
+        "ChatGPT, Copilot, cloude, opencode, ctrl+c, ctrl+v, vibes, prayers",
+      status: "AI said it was fine",
+      bugs: "Back to LLMs",
+      currently: "Trying to be nice to LLMs",
+      uptime: "Depends on my token limit",
+      daily: "Prompt → Stare → Regret → New Model",
+      Motto: "See no code, Quantity > Quality",
     },
     personality: [
       "✨ Vibe coding: code so fast you forget what the function does.",
+      `- Commits: "vibe initial" → "800 unchecked lines" → "mega aura" → "aura overload" → "WE ARE SOOOO BACK"`,
       "🎯 Ship now, fix later (never). That's the vibe.",
       "🎵 Coding to lo-fi beats at 3x speed.",
       "🎨 Code style is 'whatever works'. Clean code is for people with time.",
       "🚀 Production is just beta testing with real users.",
     ],
+    log: [
+      `aesthetic: lofi-music`,
+      `motivation: 6/10 (acceptable)`,
+      `timezone: whenever inspiration strikes`,
+    ],
   },
 };
+
+const profileIps = {
+  "1": "NJ, USA (404: turn signal not found)",
+  "2": "NJ, USA (latency so low even my ping misses me)",
+  "3": "NJ, USA (where static IPs still experience congestion)",
+  "4": "NJ, USA (my tokens still load faster than NYC traffic)",
+  "5": "NJ, USA (floating in the cloud)",
+} as const;
 
 const moduleData = {
   stats: {
@@ -797,6 +839,18 @@ export function Hero() {
   const currentModuleData = activeModule
     ? moduleData[activeModule as keyof typeof moduleData]
     : null;
+  const moduleItems = currentModuleData
+    ? activeModule === "stats"
+      ? [
+          ...currentModuleData.content,
+          {
+            label: "IP",
+            value: profileIps[activeProfile as keyof typeof profileIps],
+            color: "terminal-purple",
+          },
+        ]
+      : currentModuleData.content
+    : [];
 
   // Default to dark theme during SSR/hydration to prevent mismatches
   const isDark = resolvedTheme === "dark" || !resolvedTheme;
@@ -866,7 +920,7 @@ export function Hero() {
                   }}
                   whileHover={{ backgroundColor: "rgba(139, 92, 246, 0.15)" }}
                   className={`px-3 py-1.5 rounded text-xs font-mono transition-all ${
-                    activeProfile === num && !activeModule
+                    activeProfile === num
                       ? "bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/30"
                       : "text-muted-foreground hover:text-foreground hover:bg-violet-500/10"
                   }`}
@@ -933,7 +987,7 @@ export function Hero() {
                     </span>
                   </div>
                   <div className="pl-6 font-mono text-sm">
-                    {currentModuleData.content.map((item, idx) => (
+                    {moduleItems.map((item, idx) => (
                       <motion.div
                         key={idx}
                         initial={{ opacity: 0, x: -10 }}
@@ -1055,7 +1109,7 @@ export function Hero() {
                       <span className="terminal-green">➜</span>
                       <span className="terminal-blue">~</span>
                       <span className="text-foreground">
-                        cat personality.txt
+                        cat personality.md
                       </span>
                     </div>
                     <motion.div
