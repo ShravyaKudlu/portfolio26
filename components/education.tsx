@@ -72,7 +72,7 @@ export function Education() {
 
   return (
     <section id="education" className="relative py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container-responsive">
         <SectionHeader 
           title="Education"
           subtitle="Academic background and professional certifications"

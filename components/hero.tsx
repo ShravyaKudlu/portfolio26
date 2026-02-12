@@ -842,7 +842,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative z-10 container-responsive max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] w-full">
         {/* MAIN TERMINAL CONTAINER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

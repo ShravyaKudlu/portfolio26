@@ -81,7 +81,7 @@ export function About() {
 
   return (
     <section id="about" className="relative py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container-responsive">
         <SectionHeader 
           title="About Me"
           subtitle="Crafting digital experiences with passion and precision"

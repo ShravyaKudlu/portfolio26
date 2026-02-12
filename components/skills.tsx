@@ -72,7 +72,7 @@ export function Skills() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-fuchsia-600/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative container-responsive">
         <SectionHeader 
           title="Skills & Technologies"
           subtitle="Technologies I work with to bring ideas to life"

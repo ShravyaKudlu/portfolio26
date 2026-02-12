@@ -85,7 +85,7 @@ export function Contact() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative container-responsive">
         <SectionHeader
           title="Get In Touch"
           subtitle="Have a project in mind or just want to chat? I'd love to hear from you"

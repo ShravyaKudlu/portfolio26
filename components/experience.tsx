@@ -65,7 +65,7 @@ export function Experience() {
 
   return (
     <section id="experience" className="relative py-32 overflow-hidden">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="container-responsive max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
         <SectionHeader 
           title="Experience"
           subtitle="My professional journey and career highlights"

@@ -23,7 +23,7 @@ export function Footer() {
 
   return (
     <footer className="relative py-12 footer-glass">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container-responsive">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left side */}
           <div className="flex flex-col items-center md:items-start gap-2">
