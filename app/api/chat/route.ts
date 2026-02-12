@@ -15,39 +15,49 @@ export async function POST(request: NextRequest) {
 
     const systemPrompt = getSystemPrompt();
 
-    console.log("API Key present:", !!process.env.OPENROUTER_API_KEY);
-    console.log(
-      "API Key preview:",
-      process.env.OPENROUTER_API_KEY?.substring(0, 10) + "...",
-    );
-    // Try OpenRouter first (free tier available)
-    const response = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.OPENROUTER_API_KEY || ""}`,
-          "Content-Type": "application/json",
-          "HTTP-Referer":
-            process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
-          "X-Title": "Shravya Portfolio Chatbot",
-        },
-        body: JSON.stringify({
-          model: "meta-llama/llama-3.2-3b-instruct:free",
-          messages: [
-            { role: "system", content: systemPrompt },
-            ...history,
-            { role: "user", content: message },
-          ],
-          temperature: 0.7,
-          max_tokens: 500,
-        }),
+    const apiKey = process.env.GEMENI_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "GEMENI_API_KEY is not configured" },
+        { status: 500 },
+      );
+    }
+
+    const apiVersion = process.env.GEMENI_API_VERSION || "v1";
+    const model = process.env.GEMENI_MODEL || "gemini-2.0-flash";
+    const modelPath = model.startsWith("models/") ? model : `models/${model}`;
+    const url = `https://generativelanguage.googleapis.com/${apiVersion}/${modelPath}:generateContent?key=${apiKey}`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify({
+        contents: [
+          {
+            role: "user",
+            parts: [{ text: systemPrompt }],
+          },
+          ...history.map((item: { role: string; content: string }) => ({
+            role: item.role === "assistant" ? "model" : "user",
+            parts: [{ text: item.content }],
+          })),
+          {
+            role: "user",
+            parts: [{ text: message }],
+          },
+        ],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 500,
+        },
+      }),
+    });
 
     if (!response.ok) {
       // Fallback to simulated response if API fails
-      console.error("OpenRouter API error:", await response.text());
+      console.error("Gemeni API error:", await response.text());
       return NextResponse.json({
         response: generateFallbackResponse(message),
         isFallback: true,
@@ -56,7 +66,8 @@ export async function POST(request: NextRequest) {
 
     const data = await response.json();
     const botResponse =
-      data.choices?.[0]?.message?.content || generateFallbackResponse(message);
+      data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      generateFallbackResponse(message);
 
     return NextResponse.json({
       response: botResponse,
@@ -124,5 +135,5 @@ I can tell you about her skills, projects, experience, or how to get in touch. W
   }
 
   return `Hmm, I didn't quite catch that one 🤔
-Feel free to email Shravya at hello@shravya.dev — she'd love to talk directly 💬`;
+Feel free to email Shravya at shravyakudlu@gmail.com — she'd love to talk directly 💬`;
 }
