@@ -1,9 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { addContact } from "@/lib/database";
+import { addContact, initDatabase } from "@/lib/neon-database";
+
+// Initialize database on first request
+let initialized = false;
 
 export async function POST(request: NextRequest) {
   try {
+    // Initialize database if not already done
+    if (!initialized) {
+      await initDatabase();
+      initialized = true;
+    }
+
     const body = await request.json();
     const { name, email, message } = body;
 
@@ -15,7 +24,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Save to database
-    const contact = addContact(name, email, message);
+    const contact = await addContact(name, email, message);
 
     // Try to send email notification (if configured)
     let emailSent = false;
