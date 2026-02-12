@@ -60,15 +60,19 @@ export function Navigation() {
       }`}
     >
       <nav className="container-responsive">
-        <div
-          className={`relative flex items-center justify-between rounded-2xl px-6 py-3 transition-all duration-300 ${
-            scrolled
-              ? "navbar-glass"
-              : "bg-transparent"
-          }`}
-        >
+        <div className="relative">
+          {/* Blur background layer */}
+          <div className="absolute inset-0 rounded-2xl backdrop-blur-xl bg-background/80 dark:bg-background/75" />
+          
+          <div
+            className={`relative flex items-center justify-between rounded-2xl px-6 py-3 shadow-lg transition-all duration-300 ${
+              scrolled 
+                ? "bg-background/40 dark:bg-background/30 border border-violet-500/20 dark:border-violet-500/15" 
+                : "bg-background/30 dark:bg-background/20 border-0"
+            }`}
+          >
           {/* Logo */}
-          <a href="#home" className="text-xl font-bold gradient-text">
+          <a href="#home" className="text-2xl font-bold gradient-text">
             Shravya
           </a>
 
@@ -78,7 +82,7 @@ export function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-violet-500/10 ${
+                className={`relative px-4 py-2 text-base font-medium transition-colors rounded-lg hover:bg-violet-500/10 ${
                   activeSection === link.href.replace("#", "")
                     ? "text-violet-600 dark:text-violet-400"
                     : "text-foreground/70 hover:text-foreground"
@@ -105,13 +109,13 @@ export function Navigation() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg glass hover:bg-white/10 transition-all duration-300 hover:scale-110"
+                  className="p-2.5 rounded-lg glass hover:bg-white/10 transition-all duration-300 hover:scale-110"
                   aria-label={social.label}
                 >
                   {mounted ? (
-                    <social.icon className="w-4 h-4" />
+                    <social.icon className="w-5 h-5" />
                   ) : (
-                    <span className="w-4 h-4 block" />
+                    <span className="w-5 h-5 block" />
                   )}
                 </a>
               ))}
@@ -132,6 +136,7 @@ export function Navigation() {
             </button>
           </div>
         </div>
+      </div>
       </nav>
 
       {/* Mobile Navigation */}
@@ -142,9 +147,12 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-full left-0 right-0 mx-4 mt-2 rounded-2xl navbar-glass overflow-hidden"
+            className="md:hidden absolute top-full left-0 right-0 mx-4 mt-2 rounded-2xl overflow-hidden"
           >
-            <div className="p-4 space-y-2">
+            {/* Blur background layer */}
+            <div className="absolute inset-0 rounded-2xl backdrop-blur-xl bg-background/80 dark:bg-background/75 border border-violet-500/20" />
+            
+            <div className="relative p-4 space-y-2">
               {navLinks.map((link) => (
                 <a
                   key={link.href}

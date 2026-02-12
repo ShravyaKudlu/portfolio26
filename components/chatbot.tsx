@@ -20,6 +20,7 @@ export function Chatbot() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatWindowRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -28,6 +29,23 @@ export function Chatbot() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Close chatbot when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        chatWindowRef.current &&
+        !chatWindowRef.current.contains(event.target as Node) &&
+        !(event.target as HTMLElement).closest('button')
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -106,12 +124,17 @@ export function Chatbot() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={chatWindowRef}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] rounded-2xl glass border border-violet-500/20 shadow-2xl overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] rounded-2xl shadow-2xl"
           >
+            {/* Blur background layer */}
+            <div className="absolute inset-0 rounded-2xl backdrop-blur-xl bg-background/80 dark:bg-background/75 border border-violet-500/20" />
+            
+            <div className="relative">
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-violet-600/20 to-fuchsia-600/20 border-b border-violet-500/20">
               <div className="flex items-center gap-3">
@@ -126,7 +149,7 @@ export function Chatbot() {
             </div>
 
             {/* Messages */}
-            <div className="h-80 overflow-y-auto p-4 space-y-4">
+            <div className="h-80 overflow-y-auto p-4 space-y-4" data-lenis-prevent>
               {messages.map((message, index) => (
                 <motion.div
                   key={index}
@@ -211,6 +234,7 @@ export function Chatbot() {
                 </motion.button>
               </div>
             </form>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

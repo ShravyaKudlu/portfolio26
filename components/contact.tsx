@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, Variants } from "motion/react";
+import { motion, useInView, Variants, AnimatePresence } from "motion/react";
 import { useRef, useState } from "react";
 import { Mail, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
 import { SectionHeader } from "./section-header";
@@ -48,6 +48,8 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,16 +66,32 @@ export function Contact() {
 
       if (response.ok && data.success) {
         setSubmitted(true);
+        setSubmitStatus("success");
+        setStatusMessage("Message sent successfully! I'll get back to you soon.");
         setFormState({ name: "", email: "", message: "" });
-        setTimeout(() => setSubmitted(false), 3000);
+        setTimeout(() => {
+          setSubmitted(false);
+          setSubmitStatus("idle");
+          setStatusMessage("");
+        }, 5000);
       } else {
         const errorMessage =
           data.error || "Failed to send message. Please try again.";
-        alert(errorMessage);
+        setSubmitStatus("error");
+        setStatusMessage(errorMessage);
+        setTimeout(() => {
+          setSubmitStatus("idle");
+          setStatusMessage("");
+        }, 5000);
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      alert("Failed to send message. Please try again.");
+      setSubmitStatus("error");
+      setStatusMessage("Failed to send message. Please try again.");
+      setTimeout(() => {
+        setSubmitStatus("idle");
+        setStatusMessage("");
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -250,8 +268,6 @@ export function Contact() {
                     }}
                     className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
                   />
-                ) : submitted ? (
-                  <span>Message sent!</span>
                 ) : (
                   <>
                     <span>Send Message</span>
@@ -259,6 +275,24 @@ export function Contact() {
                   </>
                 )}
               </motion.button>
+
+              {/* Status Message */}
+              <AnimatePresence>
+                {submitStatus !== "idle" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className={`p-4 rounded-xl text-center font-medium ${
+                      submitStatus === "success"
+                        ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                        : "bg-red-500/20 text-red-400 border border-red-500/30"
+                    }`}
+                  >
+                    {statusMessage}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </form>
           </motion.div>
         </motion.div>
