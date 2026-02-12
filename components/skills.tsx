@@ -13,7 +13,12 @@ const skillCategories = [
   {
     title: "Backend",
     skills: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL"],
-    color: "from-purple-500 to-fuchsia-500",
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    title: "AI",
+    skills: ["Machine Learning", "OpenAI API", "LangChain", "Vector DBs", "Prompt Engineering"],
+    color: "from-emerald-500 to-teal-500",
   },
   {
     title: "Java",
@@ -23,7 +28,7 @@ const skillCategories = [
   {
     title: "DevOps",
     skills: ["Docker", "AWS", "Vercel", "GitHub Actions", "Linux"],
-    color: "from-fuchsia-500 to-pink-500",
+    color: "from-yellow-500 to-lime-500",
   },
   {
     title: "Tools",
