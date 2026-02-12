@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, X, Send, Bot, User } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface Message {
   role: "user" | "assistant";
@@ -185,7 +187,11 @@ export function Chatbot() {
                           : "bg-white/10 rounded-bl-none"
                       }`}
                     >
-                      {message.content}
+                      <div className="chat-message-markdown">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                          {message.content}
+                        </ReactMarkdown>
+                      </div>
                     </div>
                   </motion.div>
                 ))}

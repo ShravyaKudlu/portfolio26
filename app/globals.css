@@ -477,3 +477,120 @@ html.lenis {
     padding-right: 6rem;
   }
 }
+
+/* Chatbot markdown styles */
+.chat-message-markdown {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  max-width: none;
+}
+
+.chat-message-markdown p {
+  @apply my-1.5 first:mt-0 last:mb-0;
+}
+
+.chat-message-markdown ul {
+  @apply my-1.5 list-disc pl-4;
+}
+
+.chat-message-markdown ol {
+  @apply my-1.5 list-decimal pl-4;
+}
+
+.chat-message-markdown li {
+  @apply my-0.5;
+}
+
+.chat-message-markdown code {
+  @apply px-1.5 py-0.5 rounded bg-black/10 dark:bg-white/10 text-sm font-mono;
+}
+
+.chat-message-markdown pre {
+  @apply p-3 my-2 rounded-lg bg-black/5 dark:bg-white/5 overflow-x-auto;
+}
+
+.chat-message-markdown pre code {
+  @apply p-0 bg-transparent;
+}
+
+.chat-message-markdown a {
+  @apply text-violet-600 dark:text-violet-400 underline hover:text-violet-700 dark:hover:text-violet-300;
+}
+
+.chat-message-markdown strong {
+  @apply font-semibold;
+}
+
+.chat-message-markdown em {
+  @apply italic;
+}
+
+.chat-message-markdown h1,
+.chat-message-markdown h2,
+.chat-message-markdown h3,
+.chat-message-markdown h4 {
+  @apply font-semibold my-2 first:mt-0;
+}
+
+.chat-message-markdown h1 {
+  @apply text-lg;
+}
+
+.chat-message-markdown h2 {
+  @apply text-base;
+}
+
+.chat-message-markdown h3,
+.chat-message-markdown h4 {
+  @apply text-sm;
+}
+
+.chat-message-markdown blockquote {
+  @apply pl-3 my-2 border-l-2 border-violet-500/50 italic;
+}
+
+.chat-message-markdown hr {
+  @apply my-3 border-t border-border;
+}
+
+.chat-message-markdown table {
+  @apply w-full my-2 text-sm border-collapse;
+}
+
+.chat-message-markdown th,
+.chat-message-markdown td {
+  @apply px-2 py-1 border border-border;
+}
+
+.chat-message-markdown th {
+  @apply bg-muted font-semibold;
+}
+
+/* User message specific markdown styles */
+.bg-violet-600 .chat-message-markdown {
+  @apply text-white;
+}
+
+.bg-violet-600 .chat-message-markdown code {
+  @apply bg-white/20 text-white;
+}
+
+.bg-violet-600 .chat-message-markdown pre {
+  @apply bg-white/10;
+}
+
+.bg-violet-600 .chat-message-markdown pre code {
+  @apply bg-transparent;
+}
+
+.bg-violet-600 .chat-message-markdown a {
+  @apply text-white underline;
+}
+
+.bg-violet-600 .chat-message-markdown strong {
+  @apply text-white;
+}
+
+.bg-violet-600 .chat-message-markdown blockquote {
+  @apply border-white/50;
+}
