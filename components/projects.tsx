@@ -80,7 +80,7 @@ export function Projects() {
 
   return (
     <section id="projects" className="relative py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container-responsive">
         <SectionHeader 
           title="Featured Work"
           subtitle="Some of my latest projects showcasing different technologies and solutions"

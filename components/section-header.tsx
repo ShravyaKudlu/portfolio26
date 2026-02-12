@@ -64,7 +64,7 @@ export function SectionHeader({ label, title, subtitle }: SectionHeaderProps) {
       {/* Title */}
       <motion.h2 
         variants={slideUpVariants}
-        className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+        className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight"
       >
         {title.split(" ").map((word, index) => (
           <span key={index}>
@@ -81,7 +81,7 @@ export function SectionHeader({ label, title, subtitle }: SectionHeaderProps) {
       {subtitle && (
         <motion.p 
           variants={slideUpVariants}
-          className="text-lg text-muted-foreground mt-4 max-w-2xl"
+          className="text-lg lg:text-xl xl:text-2xl text-muted-foreground mt-4 max-w-2xl xl:max-w-3xl 2xl:max-w-4xl"
         >
           {subtitle}
         </motion.p>

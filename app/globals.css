@@ -317,19 +317,43 @@ html.lenis {
 .dark .terminal-pink { color: #f7768e; }
 .dark .terminal-magenta { color: #c0caf5; }
 
-/* Navbar specific glass effect */
+/* Navbar specific glass effect - Hyprland style with blur overlay */
 .navbar-glass {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(16px);
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(139, 92, 246, 0.3);
-  box-shadow: 0 4px 30px rgba(139, 92, 246, 0.12);
+  box-shadow: 
+    0 4px 30px rgba(139, 92, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.navbar-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: inherit;
+  z-index: -1;
 }
 
 .dark .navbar-glass {
-  background: rgba(15, 15, 25, 0.8);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(20, 18, 35, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Navbar hover state enhancement */
+.navbar-glass:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+.dark .navbar-glass:hover {
+  background: rgba(25, 25, 45, 0.85);
+  border-color: rgba(139, 92, 246, 0.35);
 }
 
 /* Footer glass effect */
@@ -408,4 +432,196 @@ html.lenis {
     letter-spacing: 0 !important;
     line-height: 1.15 !important;
   }
+}
+
+/* Large screen optimizations */
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+/* Container widths for larger screens */
+.container-2xl {
+  max-width: 1536px;
+}
+
+.container-3xl {
+  max-width: 1920px;
+}
+
+/* Enhanced container with responsive max-widths */
+.container-responsive {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-responsive {
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-responsive {
+    max-width: 1600px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container-responsive {
+    max-width: 1800px;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .container-responsive {
+    max-width: 2200px;
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* Chatbot markdown styles */
+.chat-message-markdown {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  max-width: none;
+}
+
+.chat-message-markdown p {
+  @apply my-1.5 first:mt-0 last:mb-0;
+}
+
+.chat-message-markdown ul {
+  @apply my-1.5 list-disc pl-4;
+}
+
+.chat-message-markdown ol {
+  @apply my-1.5 list-decimal pl-4;
+}
+
+.chat-message-markdown li {
+  @apply my-0.5;
+}
+
+.chat-message-markdown code {
+  @apply px-1.5 py-0.5 rounded bg-black/10 dark:bg-white/10 text-sm font-mono;
+}
+
+.chat-message-markdown pre {
+  @apply p-3 my-2 rounded-lg bg-black/5 dark:bg-white/5 overflow-x-auto;
+}
+
+.chat-message-markdown pre code {
+  @apply p-0 bg-transparent;
+}
+
+.chat-message-markdown a {
+  @apply text-violet-600 dark:text-violet-400 underline hover:text-violet-700 dark:hover:text-violet-300;
+}
+
+.chat-message-markdown strong {
+  @apply font-semibold;
+}
+
+.chat-message-markdown em {
+  @apply italic;
+}
+
+.chat-message-markdown h1,
+.chat-message-markdown h2,
+.chat-message-markdown h3,
+.chat-message-markdown h4 {
+  @apply font-semibold my-2 first:mt-0;
+}
+
+.chat-message-markdown h1 {
+  @apply text-lg;
+}
+
+.chat-message-markdown h2 {
+  @apply text-base;
+}
+
+.chat-message-markdown h3,
+.chat-message-markdown h4 {
+  @apply text-sm;
+}
+
+.chat-message-markdown blockquote {
+  @apply pl-3 my-2 border-l-2 border-violet-500/50 italic;
+}
+
+.chat-message-markdown hr {
+  @apply my-3 border-t border-border;
+}
+
+.chat-message-markdown table {
+  @apply w-full my-2 text-sm border-collapse;
+}
+
+.chat-message-markdown th,
+.chat-message-markdown td {
+  @apply px-2 py-1 border border-border;
+}
+
+.chat-message-markdown th {
+  @apply bg-muted font-semibold;
+}
+
+/* User message specific markdown styles */
+.bg-violet-600 .chat-message-markdown {
+  @apply text-white;
+}
+
+.bg-violet-600 .chat-message-markdown code {
+  @apply bg-white/20 text-white;
+}
+
+.bg-violet-600 .chat-message-markdown pre {
+  @apply bg-white/10;
+}
+
+.bg-violet-600 .chat-message-markdown pre code {
+  @apply bg-transparent;
+}
+
+.bg-violet-600 .chat-message-markdown a {
+  @apply text-white underline;
+}
+
+.bg-violet-600 .chat-message-markdown strong {
+  @apply text-white;
+}
+
+.bg-violet-600 .chat-message-markdown blockquote {
+  @apply border-white/50;
 }
