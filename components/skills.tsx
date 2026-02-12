@@ -34,11 +34,12 @@ const skillCategories = [
   {
     title: "AI",
     skills: [
-      "OpenAI API",
       "LangChain",
       "Vector DBs",
       "Prompt Engineering",
       "RAG",
+      "Ollama",
+      "OpenAI API",
     ],
     color: "from-emerald-500 to-teal-500",
   },
