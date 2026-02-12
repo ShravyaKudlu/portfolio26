@@ -16,9 +16,13 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://github.com", icon: Github, label: "GitHub" },
-  { href: "https://linkedin.com", icon: Linkedin, label: "LinkedIn" },
-  { href: "https://twitter.com", icon: Twitter, label: "Twitter" },
+  { href: "https://github.com/ShravyaKudlu", icon: Github, label: "GitHub" },
+  {
+    href: "https://www.linkedin.com/in/shravya-kudlu",
+    icon: Linkedin,
+    label: "LinkedIn",
+  },
+  { href: "https://x.com/ShravyaKudlu", icon: Twitter, label: "Twitter" },
 ];
 
 export function Navigation() {
@@ -29,14 +33,14 @@ export function Navigation() {
 
   useEffect(() => {
     setMounted(true);
-    
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      
+
       // Update active section based on scroll
-      const sections = navLinks.map(link => link.href.replace("#", ""));
+      const sections = navLinks.map((link) => link.href.replace("#", ""));
       const scrollPosition = window.scrollY + 200;
-      
+
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
         if (section && section.offsetTop <= scrollPosition) {
@@ -63,80 +67,84 @@ export function Navigation() {
         <div className="relative">
           {/* Blur background layer */}
           <div className="absolute inset-0 rounded-2xl backdrop-blur-xl bg-background/80 dark:bg-background/75" />
-          
+
           <div
             className={`relative flex items-center justify-between rounded-2xl px-6 py-3 shadow-lg transition-all duration-300 ${
-              scrolled 
-                ? "bg-background/40 dark:bg-background/30 border border-violet-500/20 dark:border-violet-500/15" 
+              scrolled
+                ? "bg-background/40 dark:bg-background/30 border border-violet-500/20 dark:border-violet-500/15"
                 : "bg-background/30 dark:bg-background/20 border-0"
             }`}
           >
-          {/* Logo */}
-          <a href="#home" className="text-2xl font-bold gradient-text">
-            Shravya
-          </a>
+            {/* Logo */}
+            <a href="#home" className="text-2xl font-bold gradient-text">
+              Shravya
+            </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`relative px-4 py-2 text-base font-medium transition-colors rounded-lg hover:bg-violet-500/10 ${
-                  activeSection === link.href.replace("#", "")
-                    ? "text-violet-600 dark:text-violet-400"
-                    : "text-foreground/70 hover:text-foreground"
-                }`}
-              >
-                {link.label}
-                {activeSection === link.href.replace("#", "") && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute inset-0 rounded-lg bg-violet-500/10 border border-violet-500/20"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-              </a>
-            ))}
-          </div>
-
-          {/* Right side */}
-          <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-2">
-              {socialLinks.map((social) => (
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-1">
+              {navLinks.map((link) => (
                 <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg glass hover:bg-white/10 transition-all duration-300 hover:scale-110"
-                  aria-label={social.label}
+                  key={link.href}
+                  href={link.href}
+                  className={`relative px-4 py-2 text-base font-medium transition-colors rounded-lg hover:bg-violet-500/10 ${
+                    activeSection === link.href.replace("#", "")
+                      ? "text-violet-600 dark:text-violet-400"
+                      : "text-foreground/70 hover:text-foreground"
+                  }`}
                 >
-                  {mounted ? (
-                    <social.icon className="w-5 h-5" />
-                  ) : (
-                    <span className="w-5 h-5 block" />
+                  {link.label}
+                  {activeSection === link.href.replace("#", "") && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute inset-0 rounded-lg bg-violet-500/10 border border-violet-500/20"
+                      transition={{
+                        type: "spring",
+                        bounce: 0.2,
+                        duration: 0.6,
+                      }}
+                    />
                   )}
                 </a>
               ))}
             </div>
-            <ThemeToggle />
-            
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-lg glass hover:bg-white/10 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
+
+            {/* Right side */}
+            <div className="flex items-center gap-3">
+              <div className="hidden md:flex items-center gap-2">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 rounded-lg glass hover:bg-white/10 transition-all duration-300 hover:scale-110"
+                    aria-label={social.label}
+                  >
+                    {mounted ? (
+                      <social.icon className="w-5 h-5" />
+                    ) : (
+                      <span className="w-5 h-5 block" />
+                    )}
+                  </a>
+                ))}
+              </div>
+              <ThemeToggle />
+
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="md:hidden p-2 rounded-lg glass hover:bg-white/10 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {isOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
       </nav>
 
       {/* Mobile Navigation */}
@@ -151,7 +159,7 @@ export function Navigation() {
           >
             {/* Blur background layer */}
             <div className="absolute inset-0 rounded-2xl backdrop-blur-xl bg-background/80 dark:bg-background/75 border border-violet-500/20" />
-            
+
             <div className="relative p-4 space-y-2">
               {navLinks.map((link) => (
                 <a

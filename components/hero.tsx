@@ -146,13 +146,12 @@ const profiles = {
       currently: "Arguing with yellow deprecation logs at 2AM",
       uptime: "Grinding since node_modules was born",
       daily: "Write component → Install 4 new packages → refactor",
-      Motto: "It works on localhost, ship it",
+      Motto: "If it ain't broke, don't fix it (But I will)",
     },
     personality: [
-      "",
+      "- Enjoy transforming tricky problems into elegant, reliable code — particularly once the situation gets… interesting",
       `- Commits: "feat: add feature" → "fix: fix feature" → "fix: fix of fix" → "WORKING"`,
-      "- I solve problems. Sometimes I create them first",
-      "- Building dreams in localhost. Debugging nightmares in production",
+      "- Localhost hero, Production firefighter",
     ],
     log: [
       `[03:47] INFO: Brilliant idea detected`,
@@ -265,7 +264,7 @@ const profiles = {
       name: "Shravya",
       role: "Linux System Developer",
       focus: "Bash & shell sorcery",
-      stack: "Git, Tmux, Nvim, Lua, Python",
+      stack: "Git, Tmux, Nvim, Lua, Docker, Kubernetes",
       status: ":Terminal resident",
       bugs: "Config features",
       currently: "Chasing the one-liner that replaces 200 lines",
@@ -274,18 +273,16 @@ const profiles = {
       Motto: "Script it once, never touch again",
     },
     personality: [
-      "- I use Arch btw. Have I mentioned I use Arch?",
+      "- I craft Linux automation that conquers complexity — at my best when things go wild",
       `- Commits: "feat: add script" → "fix: conf" → "fix: confs conf" → "AUTOMATED"`,
-      "⌨️ Neovim isn't an editor, it's a lifestyle. Can't exit though.",
-      "🖥️ My terminal has more colors than my social life.",
-      "⚙️ If it's not compiled from source, is it even software?",
+      "- I use Arch btw. Have I mentioned I use Arch?",
     ],
     log: [
       `#!bin/bash`,
       `# 1. Check Arch news (in case something broke overnight)`,
       `# 2. Update system: yay -Syu`,
       `# 3. Fix what the update broke`,
-      `6. Stay on Arch btw`,
+      `# 4. Stay on Arch btw`,
     ],
   },
   "3": {
@@ -402,12 +399,9 @@ const profiles = {
       Motto: "It compiles → Therefore it works (right?)",
     },
     personality: [
-      "☕ I write Java. I drink coffee. It's basically the same thing.",
+      "- I build solid Java backends that just work — and keep working even after the third layer of abstraction",
       `- Commits: "feat: abstraction" → "refactor: refactor" → "refactor: deeper" → "refactor: extreme" → "COMPLILES"`,
-      "🏢 Enterprise development: where simple things take 47 XML files.",
-      "📝 AbstractFactoryBuilderProviderImpl: Because why be simple?",
-      "🐌 My code compiles in 5 minutes. My IDE needs 16GB RAM.",
-      "🔧 Maven downloads the internet. Every. Single. Time.",
+      "- Strong typing. Strong coffee. Strong opinions",
     ],
     log: [
       `src/com/shravya/project/
@@ -524,7 +518,7 @@ const profiles = {
       role: "Applied AI Engineer",
       focus: "Python(Teaching LLMs to behave)",
       stack: "LangChain, VectorDB, FastAPI, Ollama, RAG, MCP",
-      status: "Generating... (please stand by)",
+      status: "Rate limits are suggestions, not boundaries",
       bugs: `"High confidence" hallucination detected`,
       currently: "Fighting context pollution and losing",
       uptime: `Since gpt-3 first said "Hello World"`,
@@ -532,12 +526,9 @@ const profiles = {
       Motto: "Just add RAG (solves 83% of problems)",
     },
     personality: [
-      "🤖 I build AI agents. Sometimes they answer back. It's concerning.",
+      "- I engineer reliable AI agents that get things done — especially when they start getting a little too independent",
       `- Commits: "feat: pipelines" → "chore: added MCP" → "feat: added context" → "revert: removed context" → "WORKS"`,
-      "🧠 My models hallucinate less than I do after 3 AM.",
-      "⚡ Prompt engineering: politely asking AI to not make things up.",
-      "📊 Vector databases hold my hopes, dreams, and embeddings.",
-      "🔄 Spent 6 months training. Model learned to output '42'.",
+      "- AI agent builder, Not model trainer, Definitely not vibe coder",
     ],
     log: [
       `shravya   2847  85.3  12.4  python agent_orchestrator.py --state=thinking`,
@@ -684,20 +675,17 @@ const profiles = {
       focus: "Momentum > Perfection",
       stack:
         "ChatGPT, Copilot, cloude, opencode, ctrl+c, ctrl+v, vibes, prayers",
-      status: "AI said it was fine",
-      bugs: "Back to LLMs",
-      currently: "Trying to be nice to LLMs",
+      status: "GENERATING... (please stand by)",
+      bugs: "AI said it was fine",
+      currently: "Boot up 30 agents, confirm always allow",
       uptime: "Depends on my token limit",
       daily: "Prompt → Stare → Regret → New Model",
       Motto: "See no code, Quantity > Quality",
     },
     personality: [
-      "✨ Vibe coding: code so fast you forget what the function does.",
+      "- I chain prompts and agents into systems that outpace thought. maximum AURA. Zero friction",
       `- Commits: "vibe initial" → "800 unchecked lines" → "mega aura" → "aura overload" → "WE ARE SOOOO BACK"`,
-      "🎯 Ship now, fix later (never). That's the vibe.",
-      "🎵 Coding to lo-fi beats at 3x speed.",
-      "🎨 Code style is 'whatever works'. Clean code is for people with time.",
-      "🚀 Production is just beta testing with real users.",
+      "- 100x developer (LLM workers did the heavy lifting)",
     ],
     log: [
       `aesthetic: lofi-music`,
@@ -851,6 +839,8 @@ export function Hero() {
         ]
       : currentModuleData.content
     : [];
+  const logCommand =
+    logs[Number.parseInt(activeProfile, 10) - 1] ?? logs[0] ?? "";
 
   // Default to dark theme during SSR/hydration to prevent mismatches
   const isDark = resolvedTheme === "dark" || !resolvedTheme;
@@ -1130,6 +1120,33 @@ export function Hero() {
                       ))}
                     </motion.div>
                   </div>
+
+                  {/* Logs Output */}
+                  <div className="mt-8 pt-8 border-t border-border/50">
+                    <div className="flex items-center gap-2 font-mono text-sm mb-4">
+                      <span className="terminal-green">➜</span>
+                      <span className="terminal-blue">~</span>
+                      <span className="text-foreground">{logCommand}</span>
+                    </div>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                      className="pl-6 font-mono text-sm text-muted-foreground space-y-2"
+                    >
+                      {currentProfile.log.map((line, idx) => (
+                        <motion.pre
+                          key={idx}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.6 + idx * 0.1 }}
+                          className="whitespace-pre-wrap"
+                        >
+                          {line}
+                        </motion.pre>
+                      ))}
+                    </motion.div>
+                  </div>
                 </>
               )}
             </motion.div>
@@ -1196,7 +1213,7 @@ export function Hero() {
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl glass hover:bg-white/10 font-medium transition-colors border border-violet-500/20"
           >
-            <span>Contact (I&apos;ll respond in 3-5 business days)</span>
+            <span>Contact Info</span>
           </motion.a>
         </motion.div>
       </div>

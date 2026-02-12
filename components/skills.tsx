@@ -7,17 +7,39 @@ import { SectionHeader } from "./section-header";
 const skillCategories = [
   {
     title: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    skills: [
+      "React",
+      "Next.js",
+      "Javascript",
+      "TypeScript",
+      "Tailwind CSS",
+      "Redux",
+    ],
     color: "from-violet-500 to-purple-500",
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL"],
+    skills: [
+      "Node.js",
+      "Python",
+      "MongoDB",
+      "RestAPI",
+      "SQL",
+      "FastAPI",
+      "Django",
+      "Redis",
+    ],
     color: "from-blue-500 to-cyan-500",
   },
   {
     title: "AI",
-    skills: ["Machine Learning", "OpenAI API", "LangChain", "Vector DBs", "Prompt Engineering"],
+    skills: [
+      "OpenAI API",
+      "LangChain",
+      "Vector DBs",
+      "Prompt Engineering",
+      "RAG",
+    ],
     color: "from-emerald-500 to-teal-500",
   },
   {
@@ -27,12 +49,19 @@ const skillCategories = [
   },
   {
     title: "DevOps",
-    skills: ["Docker", "AWS", "Vercel", "GitHub Actions", "Linux"],
+    skills: [
+      "Docker",
+      "AWS",
+      "Vercel",
+      "GitHub Actions",
+      "Linux",
+      "Kubernetes",
+    ],
     color: "from-yellow-500 to-lime-500",
   },
   {
     title: "Tools",
-    skills: ["Git", "VS Code", "Figma", "Postman", "Notion"],
+    skills: ["Git", "Nvim", "IntelliJ", "Postman", "Obsidian", "Opencode"],
     color: "from-pink-500 to-rose-500",
   },
 ];
@@ -49,8 +78,8 @@ const containerVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 40,
     scale: 0.95,
   },
@@ -78,7 +107,7 @@ export function Skills() {
       </div>
 
       <div className="relative container-responsive">
-        <SectionHeader 
+        <SectionHeader
           title="Skills & Technologies"
           subtitle="Technologies I work with to bring ideas to life"
         />
@@ -94,17 +123,17 @@ export function Skills() {
             <motion.div
               key={category.title}
               variants={cardVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 y: -5,
-                transition: { type: "spring" as const, stiffness: 300 }
+                transition: { type: "spring" as const, stiffness: 300 },
               }}
               className="group relative p-8 rounded-3xl glass overflow-hidden"
             >
               <motion.div
                 className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
               />
-              
+
               <div className="relative flex items-center gap-4 mb-6">
                 <motion.div
                   whileHover={{ rotate: 360 }}
@@ -117,15 +146,17 @@ export function Skills() {
                 </motion.div>
                 <div>
                   <h3 className="text-2xl font-semibold">{category.title}</h3>
-                  <p className="text-sm text-muted-foreground">{category.skills.length} technologies</p>
+                  <p className="text-sm text-muted-foreground">
+                    {category.skills.length} technologies
+                  </p>
                 </div>
               </div>
 
-                <div className="relative flex flex-wrap gap-3">
+              <div className="relative flex flex-wrap gap-3">
                 {category.skills.map((skill) => (
                   <motion.span
                     key={skill}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.1,
                       y: -3,
                     }}

@@ -8,26 +8,29 @@ import { SectionHeader } from "./section-header";
 const experiences = [
   {
     title: "Senior Software Engineer",
-    company: "Tech Corp",
+    company: "One Community Global",
     location: "Remote",
-    period: "2023 - Present",
-    description: "Leading frontend development for enterprise applications. Architecting scalable solutions and mentoring junior developers.",
-    skills: ["React", "TypeScript", "Node.js"],
+    period: "2025 - Present",
+    description:
+      "Driving full-stack development for a sustainability initiative, architecting scalable solutions while mentoring junior developers.",
+    skills: ["Javascript", "React", "Node.js", "MongoDB"],
   },
   {
     title: "Software Engineer",
-    company: "Startup Inc",
-    location: "San Francisco, CA",
+    company: "Accenture",
+    location: "Bengaluru, KA",
     period: "2021 - 2023",
-    description: "Built full-stack applications from scratch. Implemented CI/CD pipelines and improved application performance by 40%.",
-    skills: ["Next.js", "Python", "AWS"],
+    description:
+      "Built backend from scratch for home and landlord insurance product. Migrated services to cloud and improved performance by 40%.",
+    skills: ["Java", "Spring Boot", "IBM Integration Bus", "mySQL", "AWS"],
   },
   {
-    title: "Junior Developer",
+    title: "Intern",
     company: "Digital Agency",
-    location: "New York, NY",
+    location: "Bengaluru, KA",
     period: "2020 - 2021",
-    description: "Developed responsive websites and web applications for diverse clients. Collaborated with design and product teams.",
+    description:
+      "Developed responsive websites and web applications for diverse clients. Collaborated with design and product teams.",
     skills: ["JavaScript", "React", "CSS"],
   },
 ];
@@ -44,8 +47,8 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     x: -40,
   },
   visible: {
@@ -66,7 +69,7 @@ export function Experience() {
   return (
     <section id="experience" className="relative py-32 overflow-hidden">
       <div className="container-responsive max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
-        <SectionHeader 
+        <SectionHeader
           title="Experience"
           subtitle="My professional journey and career highlights"
         />
@@ -101,9 +104,9 @@ export function Experience() {
                 />
 
                 <motion.div
-                  whileHover={{ 
+                  whileHover={{
                     x: 10,
-                    transition: { type: "spring" as const, stiffness: 300 }
+                    transition: { type: "spring" as const, stiffness: 300 },
                   }}
                   className="group p-6 rounded-2xl glass hover:bg-white/10 transition-colors"
                 >

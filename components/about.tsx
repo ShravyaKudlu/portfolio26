@@ -7,9 +7,15 @@ import { SectionHeader } from "./section-header";
 
 const features = [
   {
+    icon: Coffee,
+    title: "Passionate",
+    description: "Loving what I do, one commit at a time",
+  },
+  {
     icon: Code2,
     title: "Clean Code",
-    description: "Writing maintainable, efficient code following best practices",
+    description:
+      "Writing maintainable, efficient code following best practices",
   },
   {
     icon: Zap,
@@ -22,14 +28,10 @@ const features = [
     description: "From frontend polish to backend architecture",
   },
   {
-    icon: Coffee,
-    title: "Passionate",
-    description: "Loving what I do, one commit at a time",
-  },
-  {
     icon: Brain,
     title: "AI",
-    description: "Building intelligent solutions with machine learning and LLMs",
+    description:
+      "Building intelligent agentic systems that solve real problems",
   },
   {
     icon: Cpu,
@@ -82,7 +84,7 @@ export function About() {
   return (
     <section id="about" className="relative py-32 overflow-hidden">
       <div className="container-responsive">
-        <SectionHeader 
+        <SectionHeader
           title="About Me"
           subtitle="Crafting digital experiences with passion and precision"
         />
@@ -95,7 +97,10 @@ export function About() {
           className="grid lg:grid-cols-2 gap-16 items-center"
         >
           <div className="space-y-8 flex flex-col items-center">
-            <motion.div variants={slideFromLeft} className="flex justify-center w-full">
+            <motion.div
+              variants={slideFromLeft}
+              className="flex justify-center w-full"
+            >
               <img
                 src="/Shravya.png"
                 alt="Shravya"
@@ -103,27 +108,31 @@ export function About() {
               />
             </motion.div>
 
-            <motion.div variants={slideFromLeft} className="space-y-4 text-muted-foreground">
+            <motion.div
+              variants={slideFromLeft}
+              className="space-y-4 text-muted-foreground"
+            >
               <p className="text-lg leading-relaxed">
-                I&apos;m a software engineer with a passion for building beautiful,
-                functional applications. My journey in tech started with curiosity
-                and has evolved into a deep love for creating solutions that make
-                a real impact.
+                I&apos;m a software engineer with a passion for building
+                beautiful, functional applications. My journey in tech started
+                with curiosity and has evolved into a deep love for creating
+                solutions that make a real impact.
               </p>
               <p className="text-lg leading-relaxed">
-                When I&apos;m not coding, you&apos;ll find me exploring new technologies,
-                contributing to open source, or enjoying a good cup of coffee while
-                brainstorming the next big idea.
+                When I&apos;m not coding, you&apos;ll find me exploring new
+                technologies, contributing to open source, solving challenges in
+                leetcode or enjoying a good cup of coffee while brainstorming
+                the next big idea.
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               variants={slideFromLeft}
               className="grid grid-cols-3 gap-6 w-full"
             >
               {[
-                { value: "5+", label: "Years Experience" },
-                { value: "50+", label: "Projects Completed" },
+                { value: "3+", label: "Years Experience" },
+                { value: "30+", label: "Projects Completed" },
                 { value: "100%", label: "Commitment" },
               ].map((stat, index) => (
                 <motion.div
@@ -135,10 +144,10 @@ export function About() {
                     type: "spring" as const,
                     stiffness: 200,
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     y: -5,
-                    transition: { type: "spring" as const, stiffness: 300 }
+                    transition: { type: "spring" as const, stiffness: 300 },
                   }}
                   className="text-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-pointer"
                 >
@@ -153,7 +162,7 @@ export function About() {
             </motion.div>
           </div>
 
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             className="grid grid-cols-2 gap-6"
           >
@@ -161,10 +170,10 @@ export function About() {
               <motion.div
                 key={feature.title}
                 variants={index % 2 === 0 ? slideFromLeft : slideFromRight}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   y: -5,
-                  transition: { type: "spring" as const, stiffness: 300 }
+                  transition: { type: "spring" as const, stiffness: 300 },
                 }}
                 className="group p-8 rounded-2xl glass hover:bg-white/10 transition-colors cursor-pointer"
               >

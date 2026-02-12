@@ -8,32 +8,30 @@ import { SectionHeader } from "./section-header";
 const education = [
   {
     degree: "Master of Science in Computer Science",
-    school: "Stanford University",
-    location: "Stanford, CA",
-    period: "2018 - 2020",
-    gpa: "3.9/4.0",
-    achievements: ["Dean's List", "Research Assistant in AI Lab"],
+    school: "New Jersey Institute of Technology",
+    location: "Newark, NJ",
+    period: "2023 - 2025",
+    achievements: ["Hackathon Winner 2024"],
   },
   {
     degree: "Bachelor of Science in Software Engineering",
-    school: "MIT",
+    school: "SDM Institute of Engineering and Technology",
     location: "Cambridge, MA",
-    period: "2014 - 2018",
-    gpa: "3.8/4.0",
-    achievements: ["Summa Cum Laude", "Hackathon Winner 2017"],
+    period: "2016 - 2020",
+    achievements: ["Toastmaster club", "AI Research Assistant"],
   },
 ];
 
 const certifications = [
   {
-    name: "AWS Solutions Architect",
-    issuer: "Amazon Web Services",
-    year: "2023",
+    name: "Vector Databases",
+    issuer: "Weaviate",
+    year: "2025",
   },
   {
-    name: "Google Cloud Professional",
-    issuer: "Google",
-    year: "2022",
+    name: "AWS Academy Cloud Developing",
+    issuer: "Amazon Web Services (AWS)",
+    year: "2024",
   },
 ];
 
@@ -49,8 +47,8 @@ const containerVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 40,
     scale: 0.95,
   },
@@ -73,7 +71,7 @@ export function Education() {
   return (
     <section id="education" className="relative py-32 overflow-hidden">
       <div className="container-responsive">
-        <SectionHeader 
+        <SectionHeader
           title="Education"
           subtitle="Academic background and professional certifications"
         />
@@ -92,15 +90,15 @@ export function Education() {
               </div>
               <h3 className="text-2xl font-semibold">Degrees</h3>
             </div>
-            
+
             {education.map((edu, index) => (
               <motion.div
                 key={index}
                 variants={cardVariants}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   x: 5,
-                  transition: { type: "spring" as const, stiffness: 300 }
+                  transition: { type: "spring" as const, stiffness: 300 },
                 }}
                 className="p-6 rounded-2xl glass hover:bg-white/10 transition-colors"
               >
@@ -113,7 +111,6 @@ export function Education() {
                     <Calendar className="w-4 h-4" />
                     <span>{edu.period}</span>
                   </div>
-                  <span>GPA: {edu.gpa}</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {edu.achievements.map((achievement) => (
@@ -143,9 +140,9 @@ export function Education() {
                 <motion.div
                   key={index}
                   variants={cardVariants}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
-                    transition: { type: "spring" as const, stiffness: 300 }
+                    transition: { type: "spring" as const, stiffness: 300 },
                   }}
                   className="p-6 rounded-2xl glass hover:bg-white/10 transition-colors group cursor-pointer"
                 >
@@ -173,7 +170,7 @@ export function Education() {
             >
               <h4 className="font-semibold mb-2">Continuous Learning</h4>
               <p className="text-sm text-muted-foreground">
-                Always staying up-to-date with the latest technologies through 
+                Always staying up-to-date with the latest technologies through
                 online courses, workshops, and hands-on projects.
               </p>
             </motion.div>

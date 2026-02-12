@@ -6,9 +6,13 @@ import { Mail, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
 import { SectionHeader } from "./section-header";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Github, href: "https://github.com/ShravyaKudlu", label: "GitHub" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/shravya-kudlu",
+    label: "LinkedIn",
+  },
+  { icon: Twitter, href: "https://x.com/ShravyaKudlu", label: "Twitter" },
 ];
 
 const containerVariants: Variants = {
@@ -48,7 +52,9 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showForm, setShowForm] = useState(true);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
   const [statusMessage, setStatusMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -67,7 +73,9 @@ export function Contact() {
       if (response.ok && data.success) {
         setShowForm(false);
         setSubmitStatus("success");
-        setStatusMessage("Message sent successfully! I'll get back to you soon.");
+        setStatusMessage(
+          "Message sent successfully! I'll get back to you soon.",
+        );
         setFormState({ name: "", email: "", message: "" });
         setTimeout(() => {
           setShowForm(true);
@@ -186,7 +194,10 @@ export function Contact() {
             </motion.div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="relative min-h-[500px]">
+          <motion.div
+            variants={itemVariants}
+            className="relative min-h-[500px]"
+          >
             <AnimatePresence mode="wait">
               {showForm ? (
                 <motion.form
@@ -319,7 +330,7 @@ export function Contact() {
 // Phone Buzz Success Animation Component
 function PhoneBuzzSuccess() {
   return (
-    <motion.div 
+    <motion.div
       className="relative"
       initial={{ scale: 0.8, y: 20 }}
       animate={{ scale: 1, y: 0 }}
@@ -327,99 +338,109 @@ function PhoneBuzzSuccess() {
     >
       {/* Content */}
       <div className="flex flex-col items-center text-center">
-          {/* Phone with vibration animation */}
+        {/* Phone with vibration animation */}
+        <motion.div
+          animate={{
+            x: [0, -3, 3, -3, 3, 0],
+            rotate: [0, -2, 2, -2, 2, 0],
+          }}
+          transition={{
+            duration: 0.5,
+            repeat: 3,
+            ease: "easeInOut",
+          }}
+          className="relative mb-6"
+        >
+          {/* Phone icon */}
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500/30 to-emerald-500/30 flex items-center justify-center border border-green-500/40 shadow-lg shadow-green-500/20">
+            <svg
+              className="w-10 h-10 text-green-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
+              <rect x="5" y="2" width="14" height="20" rx="2" />
+              <line x1="12" y1="18" x2="12" y2="18.01" strokeWidth={2} />
+            </svg>
+          </div>
+
+          {/* Notification dot */}
           <motion.div
-            animate={{
-              x: [0, -3, 3, -3, 3, 0],
-              rotate: [0, -2, 2, -2, 2, 0],
-            }}
-            transition={{
-              duration: 0.5,
-              repeat: 3,
-              ease: "easeInOut",
-            }}
-            className="relative mb-6"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.5, type: "spring" }}
+            className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-green-500 flex items-center justify-center shadow-lg"
           >
-            {/* Phone icon */}
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500/30 to-emerald-500/30 flex items-center justify-center border border-green-500/40 shadow-lg shadow-green-500/20">
-              <svg 
-                className="w-10 h-10 text-green-400" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <rect x="5" y="2" width="14" height="20" rx="2" />
-                <line x1="12" y1="18" x2="12" y2="18.01" strokeWidth={2} />
-              </svg>
-            </div>
-            
-            {/* Notification dot */}
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.5, type: "spring" }}
-              className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-green-500 flex items-center justify-center shadow-lg"
+            <svg
+              className="w-3 h-3 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-              </svg>
-            </motion.div>
-            
-            {/* Vibration lines */}
-            <motion.div
-              animate={{ opacity: [0, 1, 0], x: [-10, -20, -30] }}
-              transition={{ duration: 0.5, repeat: 3 }}
-              className="absolute left-full top-1/2 -translate-y-1/2 ml-2"
-            >
-              <div className="flex gap-1">
-                <div className="w-0.5 h-8 bg-green-500/40 rounded-full" />
-                <div className="w-0.5 h-6 bg-green-500/30 rounded-full" />
-                <div className="w-0.5 h-4 bg-green-500/20 rounded-full" />
-              </div>
-            </motion.div>
-            <motion.div
-              animate={{ opacity: [0, 1, 0], x: [10, 20, 30] }}
-              transition={{ duration: 0.5, repeat: 3 }}
-              className="absolute right-full top-1/2 -translate-y-1/2 mr-2"
-            >
-              <div className="flex gap-1">
-                <div className="w-0.5 h-4 bg-green-500/20 rounded-full" />
-                <div className="w-0.5 h-6 bg-green-500/30 rounded-full" />
-                <div className="w-0.5 h-8 bg-green-500/40 rounded-full" />
-              </div>
-            </motion.div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={3}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
           </motion.div>
 
-          {/* Text */}
-          <motion.h3
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-2xl font-bold mb-3"
+          {/* Vibration lines */}
+          <motion.div
+            animate={{ opacity: [0, 1, 0], x: [-10, -20, -30] }}
+            transition={{ duration: 0.5, repeat: 3 }}
+            className="absolute left-full top-1/2 -translate-y-1/2 ml-2"
           >
-            <span className="text-green-400">Sent!</span>
-          </motion.h3>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-muted-foreground text-lg max-w-[280px]"
+            <div className="flex gap-1">
+              <div className="w-0.5 h-8 bg-green-500/40 rounded-full" />
+              <div className="w-0.5 h-6 bg-green-500/30 rounded-full" />
+              <div className="w-0.5 h-4 bg-green-500/20 rounded-full" />
+            </div>
+          </motion.div>
+          <motion.div
+            animate={{ opacity: [0, 1, 0], x: [10, 20, 30] }}
+            transition={{ duration: 0.5, repeat: 3 }}
+            className="absolute right-full top-1/2 -translate-y-1/2 mr-2"
           >
-            Shravya's phone just buzzed... maybe
-          </motion.p>
-          
-          {/* Subtle hint */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="text-xs text-muted-foreground/60 mt-4"
-          >
-            (Response time: Eventually™)
-          </motion.p>
-        </div>
+            <div className="flex gap-1">
+              <div className="w-0.5 h-4 bg-green-500/20 rounded-full" />
+              <div className="w-0.5 h-6 bg-green-500/30 rounded-full" />
+              <div className="w-0.5 h-8 bg-green-500/40 rounded-full" />
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Text */}
+        <motion.h3
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-2xl font-bold mb-3"
+        >
+          <span className="text-green-400">Sent!</span>
+        </motion.h3>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="text-muted-foreground text-lg max-w-[280px]"
+        >
+          Shravya's phone just buzzed... maybe
+        </motion.p>
+
+        {/* Subtle hint */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="text-xs text-muted-foreground/60 mt-4"
+        >
+          (Response time: Eventually™)
+        </motion.p>
+      </div>
     </motion.div>
   );
 }

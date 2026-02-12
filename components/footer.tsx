@@ -5,9 +5,13 @@ import { useState, useEffect } from "react";
 import { Heart, Github, Linkedin, Twitter, ArrowUp } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Github, href: "https://github.com/ShravyaKudlu", label: "GitHub" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/shravya-kudlu",
+    label: "LinkedIn",
+  },
+  { icon: Twitter, href: "https://x.com/ShravyaKudlu", label: "Twitter" },
 ];
 
 export function Footer() {
@@ -27,7 +31,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left side */}
           <div className="flex flex-col items-center md:items-start gap-2">
-            <motion.span 
+            <motion.span
               className="text-xl font-bold gradient-text"
               whileHover={{ scale: 1.05 }}
             >
@@ -46,7 +50,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.2,
                   y: -3,
                 }}
@@ -66,12 +70,13 @@ export function Footer() {
           {/* Right side */}
           <div className="flex items-center gap-4">
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              Built with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> using Next.js
+              Built with <Heart className="w-4 h-4 text-red-500 fill-red-500" />{" "}
+              using Next.js
             </p>
-            
+
             <motion.button
               onClick={scrollToTop}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.1,
                 y: -2,
               }}
@@ -85,7 +90,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
