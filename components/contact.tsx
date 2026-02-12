@@ -23,8 +23,8 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 30,
   },
   visible: {
@@ -52,11 +52,11 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formState),
       });
 
@@ -67,12 +67,13 @@ export function Contact() {
         setFormState({ name: "", email: "", message: "" });
         setTimeout(() => setSubmitted(false), 3000);
       } else {
-        const errorMessage = data.error || 'Failed to send message. Please try again.';
+        const errorMessage =
+          data.error || "Failed to send message. Please try again.";
         alert(errorMessage);
       }
     } catch (error) {
-      console.error('Error sending message:', error);
-      alert('Failed to send message. Please try again.');
+      console.error("Error sending message:", error);
+      alert("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -85,7 +86,7 @@ export function Contact() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader 
+        <SectionHeader
           title="Get In Touch"
           subtitle="Have a project in mind or just want to chat? I'd love to hear from you"
         />
@@ -105,11 +106,11 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <a 
-                    href="mailto:hello@shravya.dev" 
+                  <a
+                    href="mailto:shravyakudlu@gmail.com"
                     className="text-muted-foreground hover:text-violet-400 transition-colors"
                   >
-                    hello@shravya.dev
+                    shravyakudlu@gmail.com
                   </a>
                 </div>
               </div>
@@ -120,9 +121,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Location</h3>
-                  <p className="text-muted-foreground">
-                    Remote / Worldwide
-                  </p>
+                  <p className="text-muted-foreground">Remote / Worldwide</p>
                 </div>
               </div>
             </div>
@@ -136,7 +135,7 @@ export function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.1,
                       y: -5,
                     }}
@@ -163,7 +162,8 @@ export function Contact() {
                 <span className="font-semibold">Open to Opportunities</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Currently available for freelance projects and full-time positions.
+                Currently available for freelance projects and full-time
+                positions.
               </p>
             </motion.div>
           </motion.div>
@@ -174,14 +174,19 @@ export function Contact() {
               className="p-8 rounded-3xl glass space-y-6"
             >
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
                   Name
                 </label>
                 <input
                   type="text"
                   id="name"
                   value={formState.name}
-                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, name: e.target.value })
+                  }
                   required
                   className="w-full px-4 py-3 rounded-xl input-border focus:outline-none transition-all"
                   placeholder="Your name"
@@ -189,14 +194,19 @@ export function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
                   value={formState.email}
-                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, email: e.target.value })
+                  }
                   required
                   className="w-full px-4 py-3 rounded-xl input-border focus:outline-none transition-all"
                   placeholder="your@email.com"
@@ -204,13 +214,18 @@ export function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
                   Message
                 </label>
                 <textarea
                   id="message"
                   value={formState.message}
-                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, message: e.target.value })
+                  }
                   required
                   rows={5}
                   className="w-full px-4 py-3 rounded-xl input-border focus:outline-none transition-all resize-none"
@@ -228,7 +243,11 @@ export function Contact() {
                 {isSubmitting ? (
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                     className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
                   />
                 ) : submitted ? (
