@@ -68,7 +68,36 @@ export function Experience() {
 
   return (
     <section id="experience" className="relative py-32 overflow-hidden">
-      <div className="container-responsive max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
+      {/* Flowing orb from education section - top left */}
+      <motion.div
+        animate={{
+          x: [0, 50, 25, 0],
+          y: [0, -20, 10, 0],
+          scale: [1, 1.1, 1.05, 1],
+        }}
+        transition={{
+          duration: 23,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -left-10 sm:-left-16 top-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-violet-600/12 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none"
+      />
+      
+      {/* Secondary orb for balance - right side */}
+      <motion.div
+        animate={{
+          x: [0, -40, -20, 0],
+          y: [0, 30, -20, 0],
+          scale: [1, 1.08, 0.95, 1],
+        }}
+        transition={{
+          duration: 26,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="hidden sm:block absolute -right-10 lg:-right-20 top-1/3 w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-fuchsia-600/10 rounded-full blur-[70px] sm:blur-[90px] pointer-events-none"
+      />
+      <div className="relative container-responsive max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
         <SectionHeader
           title="Experience"
           subtitle="My professional journey and career highlights"
@@ -146,9 +175,24 @@ export function Experience() {
                 </motion.div>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
+      </div>
+      
+      {/* Flowing orb to projects section - bottom right */}
+      <motion.div
+        animate={{
+          x: [0, 50, 25, 0],
+          y: [0, 20, -30, 0],
+          scale: [1, 1.15, 1.05, 1],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="hidden sm:block absolute -right-8 lg:-right-16 bottom-0 w-64 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-96 bg-violet-600/12 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none"
+      />
     </section>
   );
 }

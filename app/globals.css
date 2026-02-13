@@ -625,3 +625,79 @@ html.lenis {
 .bg-violet-600 .chat-message-markdown blockquote {
   @apply border-white/50;
 }
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Corner accent glows */
+.corner-accent {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.corner-accent-tl {
+  top: -150px;
+  left: -150px;
+}
+
+.corner-accent-tr {
+  top: -150px;
+  right: -150px;
+}
+
+.corner-accent-bl {
+  bottom: -150px;
+  left: -150px;
+}
+
+.corner-accent-br {
+  bottom: -150px;
+  right: -150px;
+}
+
+/* Breathing animation for corner accents */
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.05);
+  }
+}
+
+.breathing {
+  animation: breathe 25s ease-in-out infinite;
+}
+
+.breathing-delay-1 {
+  animation: breathe 25s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+.breathing-delay-2 {
+  animation: breathe 25s ease-in-out infinite;
+  animation-delay: -12s;
+}
+
+.breathing-delay-3 {
+  animation: breathe 25s ease-in-out infinite;
+  animation-delay: -18s;
+}

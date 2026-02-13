@@ -11,6 +11,7 @@ import {
   Bug,
   Palette,
   Terminal,
+  Download,
 } from "lucide-react";
 const logs = [
   "tail -f /var/log/brain.log",
@@ -860,30 +861,66 @@ export function Hero() {
     >
       {/* Animated background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Primary violet orb - larger, slower movement */}
         <motion.div
           animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
+            x: [0, 80, 40, 0],
+            y: [0, -40, -80, 0],
+            scale: [1, 1.1, 0.95, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/4 -left-16 sm:-left-24 lg:-left-32 w-60 h-60 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] bg-violet-600/25 rounded-full blur-[70px] sm:blur-[100px]"
+        />
+        
+        {/* Secondary fuchsia orb - medium movement */}
+        <motion.div
+          animate={{
+            x: [0, -60, -100, 0],
+            y: [0, 60, 30, 0],
+            scale: [1, 0.9, 1.05, 1],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear",
+            ease: "easeInOut",
           }}
-          className="absolute top-1/4 -left-32 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl"
+          className="hidden sm:block absolute bottom-1/4 -right-24 lg:-right-48 w-72 h-72 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] bg-fuchsia-600/25 rounded-full blur-[80px] sm:blur-[100px]"
         />
+        
+        {/* Deep purple orb - top right, subtle movement */}
         <motion.div
           animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
+            x: [0, 50, 20, 0],
+            y: [0, 30, -30, 0],
           }}
           transition={{
-            duration: 15,
+            duration: 30,
             repeat: Infinity,
-            ease: "linear",
+            ease: "easeInOut",
           }}
-          className="absolute bottom-1/4 -right-32 w-96 h-96 bg-fuchsia-600/20 rounded-full blur-3xl"
+          className="hidden md:block absolute top-1/6 right-1/4 w-72 h-72 lg:w-80 lg:h-80 bg-purple-600/20 rounded-full blur-[70px] lg:blur-[80px]"
         />
+        
+        {/* Indigo orb - bottom left accent */}
+        <motion.div
+          animate={{
+            x: [0, -40, -20, 0],
+            y: [0, -30, 40, 0],
+          }}
+          transition={{
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="hidden md:block absolute bottom-1/6 left-1/3 w-64 h-64 lg:w-72 lg:h-72 bg-indigo-600/15 rounded-full blur-[60px] lg:blur-[70px]"
+        />
+        
+        {/* Center subtle glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] sm:w-[700px] sm:h-[700px] lg:w-[800px] lg:h-[800px] bg-violet-500/5 rounded-full blur-[90px] sm:blur-[120px]" />
       </div>
 
       <div className="relative z-10 container-responsive max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] w-full pt-8">
@@ -1207,7 +1244,8 @@ export function Hero() {
           </motion.a>
 
           <motion.a
-            href="#contact"
+            href="/ShravyaKudlu.pdf"
+            download
             whileHover={{
               scale: 1.05,
               transition: {
@@ -1219,7 +1257,8 @@ export function Hero() {
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl glass hover:bg-white/10 font-medium transition-colors border border-violet-500/20"
           >
-            <span>Contact Info</span>
+            <Download className="w-5 h-5" />
+            <span>Download Resume</span>
           </motion.a>
         </motion.div>
       </div>

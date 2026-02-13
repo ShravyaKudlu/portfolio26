@@ -70,7 +70,36 @@ export function Education() {
 
   return (
     <section id="education" className="relative py-32 overflow-hidden">
-      <div className="container-responsive">
+      {/* Flowing orb from skills section - top right */}
+      <motion.div
+        animate={{
+          x: [0, 40, 20, 0],
+          y: [0, -30, 10, 0],
+          scale: [1, 1.1, 1.05, 1],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -right-10 sm:-right-20 top-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-violet-600/12 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none"
+      />
+      
+      {/* Secondary orb for balance - bottom left */}
+      <motion.div
+        animate={{
+          x: [0, -30, -10, 0],
+          y: [0, 30, -20, 0],
+          scale: [1, 1.05, 0.95, 1],
+        }}
+        transition={{
+          duration: 24,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="hidden sm:block absolute -left-8 lg:-left-16 bottom-1/4 w-56 h-64 sm:w-64 sm:h-72 lg:w-72 lg:h-80 bg-fuchsia-600/10 rounded-full blur-[70px] sm:blur-[90px] pointer-events-none"
+      />
+      <div className="relative container-responsive">
         <SectionHeader
           title="Education"
           subtitle="Academic background and professional certifications"
@@ -177,6 +206,21 @@ export function Education() {
           </motion.div>
         </motion.div>
       </div>
+      
+      {/* Flowing orb to experience section - bottom right */}
+      <motion.div
+        animate={{
+          x: [0, 40, 20, 0],
+          y: [0, 30, -20, 0],
+          scale: [1, 1.12, 1.05, 1],
+        }}
+        transition={{
+          duration: 21,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -right-20 bottom-0 w-80 h-80 bg-violet-600/12 rounded-full blur-[100px] pointer-events-none"
+      />
     </section>
   );
 }

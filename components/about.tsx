@@ -82,8 +82,10 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden">
-      <div className="container-responsive">
+    <section id="about" className="relative py-32">
+      {/* Subtle gradient that blends from hero */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
+      <div className="relative container-responsive">
         <SectionHeader
           title="About Me"
           subtitle="Crafting digital experiences with passion and precision"
@@ -99,14 +101,44 @@ export function About() {
           <div className="space-y-8 flex flex-col items-center">
             <motion.div
               variants={slideFromLeft}
-              className="flex justify-center w-full"
+              className="flex justify-center w-full relative"
             >
+              {/* Animated violet orb - left of photo */}
+              <motion.div
+                animate={{
+                  x: [0, 30, 15, 0],
+                  y: [0, -20, -30, 0],
+                  scale: [1, 1.1, 0.95, 1],
+                }}
+                transition={{
+                  duration: 25,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute -left-4 sm:-left-8 top-[5%] w-48 h-56 sm:w-64 sm:h-72 bg-violet-600/20 rounded-full blur-[70px] sm:blur-[100px] pointer-events-none"
+              />
+              
               <img
                 src="/Shravya.png"
                 alt="Shravya"
-                className="w-64 h-64 object-cover rounded-2xl mx-auto"
+                className="w-64 h-64 object-cover rounded-2xl mx-auto relative z-10"
               />
             </motion.div>
+
+            {/* Flowing orb - bottom right to connect to skills */}
+            <motion.div
+              animate={{
+                x: [0, 40, 20, 0],
+                y: [0, 20, -20, 0],
+                scale: [1, 1.15, 1.05, 1],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="hidden sm:block absolute -right-10 lg:-right-20 bottom-0 w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-violet-600/15 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none"
+            />
 
             <motion.div
               variants={slideFromLeft}
@@ -164,7 +196,7 @@ export function About() {
 
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6"
           >
             {features.map((feature, index) => (
               <motion.div
@@ -175,7 +207,7 @@ export function About() {
                   y: -5,
                   transition: { type: "spring" as const, stiffness: 300 },
                 }}
-                className="group p-8 rounded-2xl glass hover:bg-white/10 transition-colors cursor-pointer"
+                className="group p-6 rounded-2xl glass hover:bg-white/10 transition-colors cursor-pointer"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
