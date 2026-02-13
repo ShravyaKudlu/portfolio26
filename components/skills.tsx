@@ -102,10 +102,50 @@ export function Skills() {
 
   return (
     <section id="skills" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-violet-600/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-fuchsia-600/5 rounded-full blur-3xl" />
-      </div>
+      {/* Flowing orb from about section - top left */}
+      <motion.div
+        animate={{
+          x: [0, 30, 10, 0],
+          y: [0, 30, -10, 0],
+          scale: [1, 1.1, 1.05, 1],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -left-10 sm:-left-16 top-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-violet-600/15 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none"
+      />
+      
+      {/* Secondary orb for balance - right side */}
+      <motion.div
+        animate={{
+          x: [0, -40, -20, 0],
+          y: [0, -30, 20, 0],
+          scale: [1, 1.05, 0.95, 1],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="hidden sm:block absolute -right-12 lg:-right-24 bottom-1/4 w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-fuchsia-600/10 rounded-full blur-[70px] sm:blur-[90px] pointer-events-none"
+      />
+      
+      {/* Flowing orb to education section - bottom right */}
+      <motion.div
+        animate={{
+          x: [0, 50, 30, 0],
+          y: [0, 20, -30, 0],
+          scale: [1, 1.15, 1.05, 1],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="hidden sm:block absolute -right-8 lg:-right-16 bottom-0 w-64 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-96 bg-violet-600/12 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none"
+      />
 
       <div className="relative container-responsive">
         <SectionHeader

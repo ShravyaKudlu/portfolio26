@@ -108,7 +108,9 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] sm:w-[520px] sm:h-[520px] lg:w-[600px] lg:h-[600px] bg-violet-600/15 rounded-full blur-[80px] sm:blur-[100px]" />
+        <div className="hidden sm:block absolute top-1/4 right-1/4 w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-fuchsia-600/12 rounded-full blur-[60px] sm:blur-[80px]" />
+        <div className="hidden sm:block absolute bottom-1/4 left-1/4 w-52 h-52 sm:w-64 sm:h-64 lg:w-72 lg:h-72 bg-purple-600/10 rounded-full blur-[60px] sm:blur-[80px]" />
       </div>
 
       <div className="relative container-responsive">

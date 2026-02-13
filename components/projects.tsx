@@ -80,7 +80,36 @@ export function Projects() {
 
   return (
     <section id="projects" className="relative py-32 overflow-hidden">
-      <div className="container-responsive">
+      {/* Flowing orb from experience section - top right */}
+      <motion.div
+        animate={{
+          x: [0, 40, 20, 0],
+          y: [0, -30, 10, 0],
+          scale: [1, 1.1, 1.05, 1],
+        }}
+        transition={{
+          duration: 23,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -right-10 sm:-right-20 top-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-violet-600/12 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none"
+      />
+      
+      {/* Secondary orb for balance - bottom left */}
+      <motion.div
+        animate={{
+          x: [0, -35, -15, 0],
+          y: [0, 30, -20, 0],
+          scale: [1, 1.08, 0.95, 1],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="hidden sm:block absolute -left-8 lg:-left-16 bottom-1/4 w-56 h-64 sm:w-64 sm:h-72 lg:w-72 lg:h-80 bg-fuchsia-600/10 rounded-full blur-[70px] sm:blur-[90px] pointer-events-none"
+      />
+      <div className="relative container-responsive">
         <SectionHeader 
           title="Featured Work"
           subtitle="Some of my latest projects showcasing different technologies and solutions"
@@ -131,8 +160,8 @@ export function Projects() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ 
-                    opacity: hoveredIndex === index ? 1 : 0,
-                    y: hoveredIndex === index ? 0 : 20,
+                    opacity: hoveredIndex === index ? 1 : 1,
+                    y: 0,
                   }}
                   transition={{ duration: 0.3 }}
                   className="absolute top-4 right-4 flex gap-2"

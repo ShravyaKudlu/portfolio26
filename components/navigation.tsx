@@ -60,19 +60,19 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-3" : "py-5"
+        scrolled ? "py-4 md:py-3" : "py-4 md:py-5"
       }`}
     >
       <nav className="container-responsive">
         <div className="relative">
           {/* Blur background layer */}
-          <div className="absolute inset-0 rounded-2xl backdrop-blur-xl bg-background/80 dark:bg-background/75" />
+          <div className="absolute inset-0 rounded-2xl backdrop-blur-xl bg-background/95 md:bg-background/80 dark:bg-background/85 md:dark:bg-background/75" />
 
           <div
-            className={`relative flex items-center justify-between rounded-2xl px-6 py-3 shadow-lg transition-all duration-300 ${
+            className={`relative flex items-center justify-between rounded-2xl px-4 py-2.5 sm:px-5 sm:py-3 md:px-6 shadow-lg transition-all duration-300 ${
               scrolled
-                ? "bg-background/40 dark:bg-background/30 border border-violet-500/20 dark:border-violet-500/15"
-                : "bg-background/30 dark:bg-background/20 border-0"
+                ? "bg-background/90 md:bg-background/40 dark:bg-background/80 md:dark:bg-background/30 border border-violet-500/20 dark:border-violet-500/15"
+                : "bg-background/90 md:bg-background/30 dark:bg-background/80 md:dark:bg-background/20 border border-violet-500/20/0 md:border-0"
             }`}
           >
             {/* Logo */}
@@ -81,7 +81,7 @@ export function Navigation() {
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -110,7 +110,7 @@ export function Navigation() {
 
             {/* Right side */}
             <div className="flex items-center gap-3">
-              <div className="hidden md:flex items-center gap-2">
+              <div className="hidden lg:flex items-center gap-2">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
@@ -133,7 +133,7 @@ export function Navigation() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-2 rounded-lg glass hover:bg-white/10 transition-colors"
+                className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-violet-500/20 hover:bg-violet-500/30 border border-violet-500/30 text-foreground transition-colors"
                 aria-label="Toggle menu"
               >
                 {isOpen ? (
@@ -155,10 +155,10 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-full left-0 right-0 mx-4 mt-2 rounded-2xl overflow-hidden"
+            className="lg:hidden absolute top-full left-0 right-0 mx-4 mt-2 rounded-2xl overflow-hidden"
           >
             {/* Blur background layer */}
-            <div className="absolute inset-0 rounded-2xl backdrop-blur-xl bg-background/80 dark:bg-background/75 border border-violet-500/20" />
+            <div className="absolute inset-0 rounded-2xl backdrop-blur-xl bg-background/95 md:bg-background/80 dark:bg-background/85 md:dark:bg-background/75 border border-violet-500/20" />
 
             <div className="relative p-4 space-y-2">
               {navLinks.map((link) => (
