@@ -2,44 +2,52 @@
 
 import { motion, useInView, Variants } from "motion/react";
 import { useRef, useState } from "react";
-import { ExternalLink, Github, Star, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Github, Star, ArrowUpRight, Ticket, Utensils, Gavel, Wallet } from "lucide-react";
 import { SectionHeader } from "./section-header";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with real-time inventory, payment processing, and admin dashboard.",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    title: "GitTix",
+    description: "Microservice application for buying/selling concert tickets with real-time alerts. Features 10-min cart hold with Redis, JWT authentication, Stripe payments, and NATS streaming.",
+    gradient: "from-violet-500/30 via-purple-500/20 to-fuchsia-500/30",
+    icon: Ticket,
+    iconColor: "text-violet-400",
+    tags: ["TypeScript", "Microservices", "Redis", "NATS", "Stripe", "JWT"],
+    github: "https://github.com/ShravyaKudlu/GitTix",
+    demo: "",
     featured: true,
   },
   {
-    title: "Task Management App",
-    description: "Collaborative task manager with real-time updates, drag-and-drop interface, and team workspaces.",
-    image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=600&fit=crop",
-    tags: ["React", "Socket.io", "Node.js", "MongoDB"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    title: "MealGenie",
+    description: "AI-powered meal prep app that transforms grocery lists into personalized recipes for breakfast, lunch, and dinner. Powered by Generative AI, LLMs, and smart prompt engineering.",
+    gradient: "from-emerald-500/30 via-teal-500/20 to-cyan-500/30",
+    icon: Utensils,
+    iconColor: "text-emerald-400",
+    tags: ["Python", "FastAPI", "RAG", "Pinecone", "LLMs", "OpenAI"],
+    github: "https://github.com/ShravyaKudlu/MealGenie",
+    demo: "",
     featured: true,
   },
   {
-    title: "AI Image Generator",
-    description: "Web app that generates images using AI models with custom prompts and style controls.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-    tags: ["Python", "FastAPI", "React", "OpenAI"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    title: "rbay",
+    description: "Real-time auction website with live bidding, seller analytics, and OAuth2 login. Built with Redis and MongoDB, powered by Lua scripts for atomic operations.",
+    gradient: "from-amber-500/30 via-orange-500/20 to-red-500/30",
+    icon: Gavel,
+    iconColor: "text-amber-400",
+    tags: ["Svelte", "Node.js", "Redis", "MongoDB", "OAuth2", "Lua"],
+    github: "https://github.com/ShravyaKudlu/rbay",
+    demo: "",
     featured: false,
   },
   {
-    title: "Portfolio CMS",
-    description: "Headless CMS for developers to manage their portfolio content with Markdown support.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    tags: ["Next.js", "Prisma", "TypeScript", "MDX"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    title: "goCash",
+    description: "Cross-platform desktop app to manage bank accounts and transactions. Built with Rust, Tauri, React, MySQL, Ably pub/sub, Tokio async runtime, and Tailwind.",
+    gradient: "from-cyan-500/30 via-blue-500/20 to-indigo-500/30",
+    icon: Wallet,
+    iconColor: "text-cyan-400",
+    tags: ["Rust", "Tauri", "React", "MySQL", "Ably", "Tokio"],
+    github: "https://github.com/ShravyaKudlu/goCash",
+    demo: "",
     featured: false,
   },
 ];
@@ -133,15 +141,28 @@ export function Projects() {
               }`}
             >
               <div className={`relative overflow-hidden ${project.featured ? "h-80" : "h-64"}`}>
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
+                <motion.div
+                  className={`w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
                   animate={{
-                    scale: hoveredIndex === index ? 1.1 : 1,
+                    scale: hoveredIndex === index ? 1.05 : 1,
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                />
+                >
+                  <motion.div
+                    animate={{
+                      y: [0, -10, 0],
+                      rotate: [0, 5, -5, 0],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className={`${project.featured ? "w-32 h-32" : "w-24 h-24"} ${project.iconColor}`}
+                  >
+                    <project.icon className="w-full h-full" strokeWidth={1} />
+                  </motion.div>
+                </motion.div>
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
                 
@@ -174,14 +195,16 @@ export function Projects() {
                   >
                     <Github className="w-5 h-5" />
                   </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                  </a>
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  )}
                 </motion.div>
               </div>
 
